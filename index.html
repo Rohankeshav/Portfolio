@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rohan's Portfolio</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+    <script src="script.js"></script>
+</head>
+
+<body class="font-sans">
+    <header class="fixed top-0 left-0 w-full bg-black bg-opacity-50 shadow-md z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="text-3xl font-bold text-blue-500"><a href="#about">RK</a></div>
+            <nav>
+                <ul class="flex space-x-8 text-lg">
+                    <li><a href="#about" class="hover:text-blue-500">About</a></li>
+                    <li><a href="#education" class="hover:text-blue-500">Education</a></li>
+                    <li><a href="#skills" class="hover:text-blue-500">Skills</a></li>
+                    <li><a href="#experience" class="hover:text-blue-500">Experience</a></li>
+                    <li><a href="#projects" class="hover:text-blue-500">Projects</a></li>
+                    <li><a href="#contact" class="hover:text-blue-500">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="about" class="relative min-h-screen flex flex-col justify-center items-center px-4 bg-cover bg-center" style="background-image: url('bg-R_SgE7Dvf-transformed.jpeg');">
+        <div class="text-left w-full max-w-4xl">
+            <h1 class="text-5xl md:text-6xl font-bold text-white">Hello, I'm <span id="rotating-text" class="galaxy-text typing"></span></h1>
+            <p class="mt-4 text-xl animate__animated animate__fadeInUp text-white">Welcome to my portfolio!</p>
+            <p class="mt-4 text-xl animate__animated animate__fadeInUp text-white">This is the online space where you can find everything about my professional journey.</p>
+            <p class="mt-4 text-xl animate__animated animate__fadeInUp text-white">Feel free to browse my portfolio and contact me if you have any exciting ideas or opportunities where I could contribute!</p>
+            
+            <div class="mt-6 space-x-4">
+                <a href="your-cv.pdf" class="bg-pink-800 text-white py-2 px-6 rounded-full hover:bg-red-600 gsap-fade-in">Download CV</a>
+                <a href="mailto:your.email@example.com" class="bg-indigo-500 text-white py-2 px-6 rounded-full hover:bg-indigo-600 gsap-fade-in">Hire Me</a>
+            </div>
+        </div>
+    </section>
+    
+
+    <section id="education" class="py-20 bg-transparent">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center text-white mb-8">Education</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Tile 1 -->
+                <div class="education-item">
+                    <div class="flex-shrink-0">
+                        <img src="UTA.png" alt="University of Texas at Arlington" class="w-20 h-20 md:w-24 md:h-24 rounded-full border-2 border-white">
+                    </div>
+                    <div class="mt-4 md:mt-0 md:ml-6">
+                        <h3 class="text-2xl font-semibold">University of Texas at Arlington</h3>
+                        <p class="text-gray-400">Master of Science, Computer Science</p>
+                        <p class="text-gray-400">Specialization : Intelligent Systems, Cloud Computing and Databases</p>
+                        <p class="text-gray-400">Aug 2023 - May 2025</p>
+                    </div>
+                </div>
+                <!-- Tile 2 -->
+                <div class="education-item">
+                    <div class="flex-shrink-0">
+                        <img src="VIT.jpg" alt="Vemana Institute of Technology" class="w-20 h-20 md:w-24 md:h-24 rounded-full border-2 border-white">
+                    </div>
+                    <div class="mt-4 md:mt-0 md:ml-6">
+                        <h3 class="text-2xl font-semibold">Vemana Institute of Technology</h3>
+                        <p class="text-gray-400">Bachelor of Engineering, Information Science</p>
+                        <p class="text-gray-400">Specialization : Artificial Intelligence, Machine Learning</p>
+                        <p class="text-gray-400">Aug 2018 - July 2022</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+        
+
+    <section id="skills" class="py-20 bg-transparent">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center text-white mb-8">My Skills</h2>
+
+            <!-- Programming Languages -->
+            <h3 class="text-3xl font-semibold text-white mb-4">Programming Languages</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+                <!-- Existing skills -->
+                <div class="skill-tile gsap-zoom-in">
+                    <i class="fas fa-cubes"></i>
+                    <div class="skill-text">C++</div>
+                </div>
+                <div class="skill-tile gsap-zoom-in">
+                    <i class="fab fa-js"></i>
+                    <div class="skill-text">JavaScript</div>
+                </div>
+                <div class="skill-tile gsap-zoom-in">
+                    <i class="fab fa-java"></i>
+                    <div class="skill-text">Java</div>
+                </div>
+                <div class="skill-tile gsap-zoom-in">
+                    <i class="fas fa-code-branch"></i>
+                    <div class="skill-text">Scala</div>
+                </div>
+                <div class="skill-tile gsap-zoom-in">
+                    <i class="fab fa-python"></i>
+                    <div class="skill-text">Python</div>
+                </div>
+                <div class="skill-tile gsap-zoom-in">
+                    <i class="fab fa-php"></i>
+                    <div class="skill-text">PHP</div>
+                </div>
+                <div class="skill-tile gsap-zoom-in">
+                    <i class="fab fa-html5"></i>
+                    <div class="skill-text">HTML</div>
+                </div>
+                <div class="skill-tile gsap-zoom-in">
+                    <i class="fab fa-css3-alt"></i>
+                    <div class="skill-text">CSS</div>
+                </div>
+            </div>
+
+            <!-- Databases -->
+            <h3 class="text-3xl font-semibold text-white mb-4">Databases</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+                <div class="skill-tile gsap-zoom-in">
+                    <i class="fas fa-database"></i>
+                    <div class="skill-text">MySQL</div>
+                </div>
+                <div class="skill-tile gsap-zoom-in">
+                    <i class="fa-sharp fa-solid fa-database"></i>
+                    <div class="skill-text">Cassandra DB</div>
+                </div>
+            </div>
+
+            <!-- Cloud -->
+            <h3 class="text-3xl font-semibold text-white mb-4">Cloud</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+                <div class="skill-tile gsap-zoom-in">
+                    <i class="fab fa-aws"></i>
+                    <div class="skill-text">AWS</div>
+                </div>
+            </div>
+
+            <!-- Frameworks -->
+            <h3 class="text-3xl font-semibold text-white mb-4">Frameworks</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+                <div class="skill-tile gsap-zoom-in">
+                    <i class="fab fa-react"></i>
+                    <div class="skill-text">React.js</div>
+                </div>
+                <div class="skill-tile gsap-zoom-in">
+                    <i class="fa-solid fa-wind"></i>
+                    <div class="skill-text">TailwindCSS</div>
+                </div>
+            </div>
+
+            <!-- Operating Systems -->
+            <h3 class="text-3xl font-semibold text-white mb-4">Operating Systems</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+                <div class="skill-tile gsap-zoom-in">
+                    <i class="fab fa-linux"></i>
+                    <div class="skill-text">Linux</div>
+                </div>
+                <div class="skill-tile gsap-zoom-in">
+                    <i class="fab fa-windows"></i>
+                    <div class="skill-text">Windows OS</div>
+                </div>
+            </div>
+            
+            <!-- Tools -->
+            <h3 class="text-3xl font-semibold text-white mb-4">Tools</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+                <div class="skill-tile gsap-zoom-in">
+                    <i class="fab fa-git"></i>
+                    <div class="skill-text">Git</div>
+                </div>
+                <div class="skill-tile gsap-zoom-in">
+                    <i class="fab fa-github"></i>
+                    <div class="skill-text">GitHub</div>
+                </div>
+                <div class="skill-tile gsap-zoom-in">
+                    <i class="fas fa-chart-bar"></i>
+                    <div class="skill-text">Power BI</div>
+                </div>
+            </div>
+
+            <!-- IDE -->
+            <h3 class="text-3xl font-semibold text-white mb-4">IDE</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+                <div class="skill-tile gsap-zoom-in">
+                    <i class="fas fa-code"></i>
+                    <div class="skill-text">Visual Studio Code</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="py-20 bg-transparent">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center text-white mb-8">Experience</h2>
+            <div class="experience-container">
+                <div class="experience-item left">
+                    <div class="checkpoint">1</div>
+                    <h3 class="text-white text-2xl font-semibold">Graduate Teaching Assistant</h3>
+                    <h4 class="text-gray-400 text-xl">University of Texas at Arlington - CSE Department</h4>
+                    <h5 class="text-white text-xl"><i>August 2024 - Present</i></h5>
+                    <p class="text-gray-300">Serving as a Teaching Assistant for CSE-6632-Cloud Computing and Big Data under Dr. Leonidas Fegaras and Dr. Zaman Noor. The role includes conducting weekly office hours for student assistance. It also includes procturing and grading the exams and assignments throughout the semester.</p>
+                </div>
+                <div class="experience-item right">
+                    <div class="checkpoint">2</div>
+                    <h3 class="text-white text-2xl font-semibold">Summer Resident Assistant</h3>
+                    <h4 class="text-gray-400 text-xl">University of Texas at Arlington - Upward Bound</h4>
+                    <h5 class="text-white text-xl"><i>June 2024 - July 2024</i></h5>
+                    <p class="text-gray-300">Part of the Upward Bound program which aims at providing upcoming university students with the experience of the university in the form of summer programs. I handled the students in terms of safety and their overall experience with events when they were at the dorm.</p>
+                </div>
+                <div class="experience-item left">
+                    <div class="checkpoint">3</div>
+                    <h3 class="text-white text-2xl font-semibold">Data Science and Business Analytics Intern</h3>
+                    <h4 class="text-gray-400 text-xl">The Sparks Foundation, Remote</h4>
+                    <h5 class="text-white text-xl"><i>July 2021 - August 2021</i></h5>
+                    <p class="text-gray-300">Learnt the foundations of data analysis in Python. Worked on the applications of how different libraries and tools can be used to visualize data. Built a model from the learnings that could predict the results of a student in an upcoming examination based off the study hours they put in before the exam.</p>
+                </div>
+                <div class="experience-item right">
+                    <div class="checkpoint">4</div>
+                    <h3 class="text-white text-2xl font-semibold">Java Intern</h3>
+                    <h4 class="text-gray-400 text-xl">Campus.Build, Bangalore, India</h4>
+                    <h5 class="text-white text-xl"><i>January 2020 - February 2020</i></h5>
+                    <p class="text-gray-300">It was an early program where I was selected as a Java Intern to work at the startup. I had the role to work the core team to be a part of the product they were developing and also understand the industry standards.</p>
+                </div>
+                <!-- Add more experience items as needed -->
+            </div>
+        </div>
+    </section>
+         
+
+    <section id="projects" class="py-20 bg-transparent">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center text-white mb-8">Projects</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+                <div class="project-tile">
+                    <div class="project-tile-inner">
+                        <div class="project-tile-front">
+                            <img src="Megacosm.jpg" alt="Project Image" class="w-full h-full object-cover" />
+                            <div class="project-title">
+                                <h3 class="text-xl font-bold">MegaCosm - Detection and Classification of Astronomical Objects</h3>
+                            </div>
+                        </div>
+                        <div class="project-tile-back">
+                            <ul class="text-lg">
+                                <li>MegaCosm is a Machine Learning model designed to detect objects in an image in real-time using the YOLO algorithm and Convolution Neural Network.</li>
+                                <li>In this case the model has been trained by annotating with astronomical objects like the comets, stars, asteroids and many more.</li>
+                                <li>Once the raw image with these objects is fed to the model, it will be able to detect the object and draw a bounding box around it and also specify the accuracy with which it detected the object.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-tile">
+                    <div class="project-tile-inner">
+                        <div class="project-tile-front">
+                            <img src="Subscription_classifier.png" alt="Project Image" class="w-full h-full object-cover" />
+                            <div class="project-title">
+                                <h3 class="text-xl font-bold">Subscription Classifier</h3>
+                            </div>
+                        </div>
+                        <div class="project-tile-back">
+                            <ul class="text-lg">
+                                <li>Created a machine learning model to predict client subscription to a term deposit, managing a dataset of around 18,000 records. Conducted meticulous data cleaning and preprocessing using pandas to ensure accurate and complete datasets suitable for classification.</li>
+                                <li>Utilized decision tree and random forest machine learning algorithms on the prepared data to evaluate and interpret the performance of each classifier, leveraging libraries such as sklearn, matplotlib, numpy, and seaborn.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-tile">
+                    <div class="project-tile-inner">
+                        <div class="project-tile-front">
+                            <img src="hadoop.png" alt="Project Image" class="w-full h-full object-cover" />
+                            <div class="project-title">
+                                <h3 class="text-xl font-bold">Hadoop Mapreduce</h3>
+                            </div>
+                        </div>
+                        <div class="project-tile-back">
+                            <ul class="text-lg">
+                                <li>Developed a project using the Java Programming language using distributed systems concept Map Reduce to perform matrix multiplication.</li>
+                                <li>Here the idea is that data has been split and been fed in different systems but now has to be fetched and then processed to given back as the results to all the nodes in the system to maintain consistency.</li>
+                                <li>It also involves the concept of big data and horizontal scaling.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-tile">
+                    <div class="project-tile-inner">
+                        <div class="project-tile-front">
+                            <img src="red_blue_nim.jpg" alt="Project Image" class="w-full h-full object-cover" />
+                            <div class="project-title">
+                                <h3 class="text-xl font-bold">Red Blue Nim</h3>
+                            </div>
+                        </div>
+                        <div class="project-tile-back">
+                            <ul class="text-lg">
+                                <li>Red Blue Nim is an Artificial Intelligence Agent 2-Player game where one the of the players could be a human or AI. Each turn a players chooses to eliminate few marbles from the other players stack.</li>
+                                <li>It is played in two version standard and misere.Depending on the version the person with last remaining marbles wins or loses points.</li>
+                                <li>It uses the Alpha-Beta pruning with optimization to make the agent extremely intelligent and take decisions calculating all the possibilites.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-tile">
+                    <div class="project-tile-inner">
+                        <div class="project-tile-front">
+                            <img src="crime_record.png" alt="Project Image" class="w-full h-full object-cover" />
+                            <div class="project-title">
+                                <h3 class="text-xl font-bold">Crime Record Management System</h3>
+                            </div>
+                        </div>
+                        <div class="project-tile-back">
+                            <ul class="text-lg">
+                                <li>It is a standalone web application built using HTML, CSS, JavaScript, PHP and XAMPP to store all the details regarding a crime. </li>
+                                <li>It has information from where the crime was committed to victim details all stored in a relational database. It using the MySQL as the database for it. We access it using the PHPmyadmin.</li>
+                                <li>It also has advanced features like backup using triggers from SQL.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-tile">
+                    <div class="project-tile-inner">
+                        <div class="project-tile-front">
+                            <img src="space_trivia.jpeg" alt="Project Image" class="w-full h-full object-cover" />
+                            <div class="project-title">
+                                <h3 class="text-xl font-bold">Space Trivia Application</h3>
+                            </div>
+                        </div>
+                        <div class="project-tile-back">
+                            <ul class="text-lg">
+                                <li>Developed a mobile application in Android Studio using Java and XML offering extensive gameplay, multiple difficulty levels, and engaging features; enhanced user engagement by 9%.</li>
+                                <li>In each difficulty level, the user is given few mutliple choice questions with a certain timer before which they have to choose an option. It uses card style for the user interface. The total score is displayed at the end after all the questions are answered.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- Repeat .project-tile for more projects -->
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-20 bg-transparent">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center text-white mb-8">Contact Me</h2>
+            <p class="text-center text-gray-300 mb-12">Feel free to reach out to me for any inquiries or collaborations!</p>
+            
+            <div class="max-w-lg mx-auto">
+                <form action="https://formspree.io/YOUREMAIL" method="POST" class="space-y-6">
+                    <div>
+                        <label for="name" class="block text-lg text-white">Name</label>
+                        <input type="text" id="name" name="name" required class="w-full mt-2 p-3 bg-gray-500 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-gray-500 !important">
+                    </div>
+                    
+                    <div>
+                        <label for="email" class="block text-lg text-white">Email</label>
+                        <input type="email" id="email" name="email" required class="w-full mt-2 p-3 bg-gray-500 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-gray-500">
+                    </div>
+                    
+                    <div>
+                        <label for="message" class="block text-lg text-white">Message</label>
+                        <textarea id="message" name="message" rows="3" required class="w-full mt-2 p-3 bg-gray-500 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-gray-500"></textarea>
+                    </div>                    
+                    
+                    <div class="text-center">
+                        <button type="submit" class="bg-blue-500 text-white py-3 px-6 rounded-full hover:bg-blue-800 transition duration-300">Send Message</button>
+                    </div>
+                </form>
+            </div>
+    
+            <div class="flex justify-center mt-12 space-x-6">
+                <a href="https://linkedin.com/in/rohankeshavh" target="_blank" class="text-gray-300 hover:text-white">
+                    <i class="fab fa-linkedin text-3xl"></i>
+                </a>
+                <a href="https://github.com/Rohankeshav" target="_blank" class="text-gray-300 hover:text-white">
+                    <i class="fab fa-github text-3xl"></i>
+                </a>
+                <a href="mailto:rohankeshavh@gmail.com" class="text-gray-300 hover:text-white">
+                    <i class="fas fa-envelope text-3xl"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-transparent py-6 text-center text-gray-400">
+        <div class="container mx-auto">
+            <p>&copy; 2024 Rohan Keshav Harish. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+
+</html>
