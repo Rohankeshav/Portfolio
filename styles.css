@@ -1,0 +1,783 @@
+/* Base Styles */
+html{
+    scroll-behavior: smooth;
+}
+body {
+    background-color: #2D2D2D;
+    background-image: url('bg-R_SgE7Dvf-transformed.jpeg');
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    opacity: 0;
+    animation: fadeIn 1s ease-in-out forwards;
+}
+
+/* Page loading animation */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+body.loaded {
+    opacity: 1;
+}
+
+/* Particles overlay */
+#particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Scroll to top button */
+#scrollToTop {
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+#scrollToTop:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Enhanced section transitions */
+section {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Section dividers */
+.section-divider {
+    height: 150px;
+    overflow: hidden;
+    position: relative;
+}
+
+.section-divider svg {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Light/Dark Mode */
+html.light-mode body {
+    background-color: #f0f0f0;
+    background-image: url('bg-removed.jpg');
+    color: #333;
+}
+
+html.light-mode section {
+    color: #333;
+    background-color: transparent;
+}
+
+html.light-mode .skill-tile {
+    background-color: #e0e0e0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+html.light-mode .project-tile-back {
+    background-color: #e0e0e0;
+    color: #333;
+}
+
+html.light-mode nav ul li a,
+html.light-mode h2,
+html.light-mode h3 {
+    color: #333;
+}
+
+html.light-mode .experience-item p,
+html.light-mode .experience-item h3 {
+    color: #333;
+}
+
+html.light-mode form input, 
+html.light-mode form textarea {
+    background-color: #ccc;
+    color: #333;
+}
+
+/* Enhance buttons with subtle hover effects */
+a.bg-pink-800,
+a.bg-indigo-500,
+button[type="submit"],
+#scrollToTop {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    z-index: 1;
+}
+
+a.bg-pink-800:before,
+a.bg-indigo-500:before,
+button[type="submit"]:before,
+#scrollToTop:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+    z-index: -1;
+}
+
+a.bg-pink-800:hover:before,
+a.bg-indigo-500:hover:before,
+button[type="submit"]:hover:before,
+#scrollToTop:hover:before {
+    height: 100%;
+}
+
+/* Mobile menu */
+#mobile-menu-button {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    #mobile-menu-button {
+        display: block;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    nav ul li {
+        margin: 10px 0;
+    }
+    
+    .experience-item {
+        width: 100%;
+    }
+    
+    .education-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+}
+
+section {
+    background-color: transparent;
+    margin: 0;
+    padding: 0;
+}
+
+
+/* Header Styles */
+header {
+    background-color: #2d2d2d;
+    padding: 10px 20px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+}
+
+html.light-mode header {
+    background-color: #f0f0f0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    padding: 5px 10px;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #E100FF;
+}
+
+/* Theme toggle button */
+#theme-toggle {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+#theme-toggle:hover {
+    transform: rotate(30deg);
+}
+
+/* Section and Footer Styles */
+section, footer {
+    background-color: rgba(45, 45, 45, 0.7); /* Semi-transparent background */
+    color: rgb(7, 66, 57);
+    padding: 2rem;
+    border-radius: 8px;
+    margin-top: 60px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    backdrop-filter: blur(3px); /* Add slight blur effect to background */
+}
+
+html.light-mode section,
+html.light-mode footer {
+    background-color: rgba(240, 240, 240, 0.7);
+    backdrop-filter: blur(3px);
+}
+
+/* Typing Animation */
+/* Typing Animation */
+.typing {
+    font-family: monospace;
+    white-space: nowrap;
+    border-right: 2px solid;
+    animation: blink 0.7s steps(1) infinite;
+}
+
+@keyframes blink {
+    50% { border-color: transparent; }
+}
+
+/* Galaxy Text Animation */
+.galaxy-text {
+    background: linear-gradient(90deg, #7F00FF, #E100FF, #007FFF, #00CFFF, #FF007F, #FF00C3, #FFC300);
+    background-size: 400% 400%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: galaxy 5s ease infinite;
+}
+
+@keyframes galaxy {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+#about {
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent !important; /* Make sure About section is transparent */
+}
+
+#about .text-left {
+    text-align: left;
+    margin-left: 10%;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); /* Add text shadow for better readability */
+}
+
+#about h1,
+#about p {
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); /* Add text shadow for better readability */
+}
+
+
+/* Project Card Styles */
+.project-card {
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+    transform: scale(1.05);
+}
+
+/* Skill Tile Styles */
+.skill-tile {
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s ease, background 0.5s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.skill-tile i {
+    font-size: 3rem;
+    margin-bottom: 7px;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    filter: grayscale(100%); /* Black and white effect */
+}
+
+/* Skill Icon Colors */
+.skill-tile i.fab.fa-html5 { color: #E34F26; } /* HTML5 color */
+.skill-tile i.fab.fa-css3-alt { color: #1572B6; } /* CSS3 color */
+.skill-tile i.fab.fa-js { color: #F7DF1E; } /* JavaScript color */
+.skill-tile i.fab.fa-java { color: #007396; } /* Java color */
+.skill-tile i.fab.fa-python { color: #3776AB; } /* Python color */
+.skill-tile i.fab.fa-aws { color: #cf7d04; } /* AWS color */
+.skill-tile i.fab.fa-linux { color: #FCC624; } /* Linux color */
+.skill-tile i.fab.fa-react { color: #61DAFB; } /* React.js color */
+.skill-tile i.fas.fa-database { color: #4479A1; } /* MySQL color */
+.skill-tile i.fas.fa-code-branch { color: #DC382D; } /* Scala color */
+.skill-tile i.fas.fa-chart-bar { color: #F2C811; } /* Power BI color */
+.skill-tile i.fas.fa-cubes { color: #00599C; } /* C++ color */
+.skill-tile i.fas.fa-code { color: #370987; }
+.skill-tile i.fab.fa-git { color: #F1502F; } /* Git color */
+.skill-tile i.fab.fa-github { color: #333; } /* GitHub color */
+/* Added Icons for New Skills */
+.skill-tile i.fab.fa-windows { color: #0078D4; } /* Windows OS color */
+.skill-tile i.fab.fa-php { color: #787CB5; } /* PHP color */
+.skill-tile i.fa-solid.fa-wind { color: #2a8d88; } /* TailwindCSS color */
+.skill-tile i.fa-sharp.fa-solid.fa-database { color: #5A2C8D; } /* Cassandra DB color */
+
+/* Hover Effects for Skill Tiles */
+.skill-tile:hover i {
+    transform: scale(1.1); /* Slightly enlarge the icon on hover */
+    filter: grayscale(0%); /* Remove black and white effect on hover */
+}
+
+.skill-tile:hover {
+    transform: translateY(-10px);
+    background-color: #bdbcbc; /* Lighter grey on hover */
+}
+
+.skill-text {
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    color: black; /* Text color when visible */
+    opacity: 0; /* Hide text by default */
+    transition: opacity 0.3s ease;
+}
+
+.skill-tile:hover .skill-text {
+    opacity: 1; /* Show text on hover */
+}
+
+/* Form Elements */
+form input, form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+form button {
+    background-color: #E100FF; /* Button color */
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+form button:hover {
+    background-color: #B900E0; /* Darker shade on hover */
+}
+
+.experience-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    padding: 50px 0;
+}
+
+.experience-item {
+    border: none;
+    width: 45%;
+    padding: 20px;
+    background-color: rgba(104, 106, 108, 0.9); /* Semi-transparent background */
+    color: #bdbcbc;
+    position: relative;
+    margin-bottom: 40px;
+    opacity: 0; /* Initially hidden */
+    transform: translateY(50px); /* Initial position */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out, background-color 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 10px; /* Rounded corners */
+}
+
+.experience-item.visible {
+    opacity: 1; /* Fade in */
+    transform: translateY(0); /* Slide up */
+}
+
+.experience-item h3 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.experience-item h4 {
+    font-size: 18px;
+    font-weight: normal;
+    color: #bdbcbc;
+}
+
+.experience-item p {
+    font-size: 16px;
+    color: #bdbcbc;
+}
+
+.experience-item.left {
+    align-self: flex-start;
+    text-align: left;
+}
+
+.experience-item.right {
+    align-self: flex-end;
+    text-align: right;
+}
+
+.experience-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 2px;
+    background-color: #bdbcbc;
+    transform: translateX(-50%);
+}
+
+/* Hover Effects */
+.experience-item:hover {
+    background: linear-gradient(145deg, rgba(110, 110, 110, 0.9), rgba(140, 140, 140, 0.9)); /* Semi-transparent gradient background on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* More pronounced shadow */
+    transform: translateY(-5px); /* Lift the item slightly */
+}
+
+.checkpoint {
+    position: absolute;
+    top: 50%;
+    width: 40px;
+    height: 40px;
+    background-color: #fcf7fa; /* Customize your color */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(79, 77, 77);
+    font-weight: bold;
+    font-size: 18px;
+    z-index: 1;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.experience-item.left .checkpoint {
+    left: calc(100% + 20px); /* Offset from the experience item */
+}
+
+.experience-item.right .checkpoint {
+    left: calc(-60px); /* Offset from the experience item */
+}
+
+.experience-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 4px;
+    background-color: #bdbcbc;
+    transform: translateX(-50%);
+    z-index: 0;
+}
+
+.project-tile {
+    position: relative;
+    width: 100%;
+    height: 400px; /* Increase height if needed */
+    perspective: 1000px;
+    border-radius: 8px; /* Rounded corners */
+    overflow: hidden;
+    transition: transform 0.6s ease;
+}
+
+.project-tile-inner {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s ease;
+    transform-style: preserve-3d;
+}
+
+.project-tile:hover .project-tile-inner {
+    transform: rotateY(180deg);
+}
+
+.project-tile-front, .project-tile-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 8px; /* Rounded corners for faces */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px; /* Padding for internal spacing */
+}
+
+.project-tile-front {
+    background: #333; /* Background color for front */
+    z-index: 1;
+    color: white;
+    flex-direction: column;
+}
+
+.project-tile-back {
+    transform: rotateY(180deg);
+    background: #444; /* Background color for back */
+    color: white;
+}
+
+.project-title {
+    margin-top: auto; /* Push title to bottom */
+    text-align: center;
+    background: rgba(0, 0, 0, 0.5); /* Optional: Semi-transparent background */
+    padding: 10px; /* Padding for title */
+}
+
+.project-tile-back ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.project-tile-back li {
+    margin-bottom: 10px; /* Spacing between list items */
+}
+
+#education {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    background-color: rgba(45, 45, 45, 0.75);
+}
+
+#education .education-item {
+    width: 100%;
+    padding: 20px;
+    background-color: rgba(104, 106, 108, 0.9);
+    color: #bdbcbc;
+    position: relative;
+    margin-bottom: 40px;
+    opacity: 0; /* Initially hidden */
+    transform: translateY(50px); /* Initial position */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out, background-color 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 10px; /* Rounded corners */
+    display: flex;
+    align-items: center;
+}
+
+#education .education-item.visible {
+    opacity: 1; /* Fade in */
+    transform: translateY(0); /* Slide up */
+}
+
+#education .education-item:hover {
+    background: linear-gradient(145deg, #6e6e6e, #8c8c8c); /* Gradient background on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* More pronounced shadow */
+    transform: translateY(-5px); /* Lift the item slightly */
+}
+
+#education .education-item h3 {
+    color: #ffffff;
+    transition: color 0.3s ease;
+}
+
+#education .education-item p {
+    color: #bdbcbc;
+    transition: color 0.3s ease;
+}
+
+#education .education-item:hover h3,
+#education .education-item:hover p {
+    color: #000000; /* Change text color to black on hover */
+}
+
+#education img {
+    border-color: #ffffff;
+    transition: border-color 0.3s ease;
+}
+
+/* Experience section */
+#experience {
+    background-color: rgba(45, 45, 45, 0.75);
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+
+/* Skills section */
+#skills {
+    background-color: rgba(45, 45, 45, 0.75);
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+
+/* Projects section */
+#projects {
+    background-color: rgba(45, 45, 45, 0.75);
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+
+/* Education section */
+#education {
+    background-color: rgba(45, 45, 45, 0.75);
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+
+/* Contact section */
+#contact {
+    background-color: rgba(45, 45, 45, 0.75);
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+
+/* Light mode section backgrounds */
+html.light-mode #experience,
+html.light-mode #skills,
+html.light-mode #projects,
+html.light-mode #education,
+html.light-mode #contact {
+    background-color: rgba(240, 240, 240, 0.75);
+}
+
+/* Social Media Icons */
+.social-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    color: white;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    margin: 0 5px;
+}
+
+.social-icon:before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    transform: scale(0);
+    transition: transform 0.4s ease;
+    z-index: -1;
+}
+
+.social-icon:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    color: white;
+}
+
+.social-icon:hover:before {
+    transform: scale(1);
+}
+
+/* Custom colors for each social platform */
+.social-icon.linkedin:before {
+    background: #0077B5;
+}
+
+.social-icon.github:before {
+    background: #333333;
+}
+
+.social-icon.email:before {
+    background: #EA4335;
+}
+
+.social-icon.twitter:before {
+    background: #1DA1F2;
+}
+
+/* Pulse animation for icons */
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+    }
+}
+
+.social-icon i {
+    transition: transform 0.3s ease;
+}
+
+.social-icon:hover i {
+    transform: scale(1.2);
+}
+
+/* Skill Progress Bars */
+.skill-progress {
+    margin-bottom: 1.5rem;
+}
+
+.progress-bar {
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 1.5s ease-in-out;
+}
+
+.progress-visible .progress-bar {
+    transform: scaleX(1);
+}
+
+/* Skill progress bar animation */
+[data-aos="progress-animation"] {
+    transform: scaleX(0);
+    opacity: 1;
+}
+
+[data-aos="progress-animation"].aos-animate {
+    transform: scaleX(1);
+}
+
+/* Add hover glow effect to progress bars */
+.skill-progress:hover .progress-bar {
+    box-shadow: 0 0 10px 1px currentColor;
+}
+
+/* Light mode adjustments for progress bars */
+html.light-mode .skill-progress span {
+    color: #333;
+}
+
+html.light-mode .w-full.bg-gray-700 {
+    background-color: #e0e0e0;
+}
