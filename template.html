@@ -1,0 +1,1222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>John Doe - Creative Developer Portfolio</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #00ff9d; /* Matrix green */
+            --secondary: #0080ff; /* Tech blue */
+            --accent: #ff00ff; /* Magenta */
+            --dark: #0a0e1a; /* Dark blue */
+            --light: #f8fafc;
+            --text: #e2e8f0;
+            --text-secondary: #94a3b8;
+        }
+
+        body {
+            font-family: 'Source Code Pro', monospace;
+            background-color: var(--dark);
+            color: var(--text);
+            overflow-x: hidden;
+            line-height: 1.6;
+            cursor: none;
+        }
+
+        /* Custom Cursor */
+        .cursor {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--primary);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transition: all 0.1s ease;
+            transform: translate(-50%, -50%);
+        }
+
+        .cursor-follower {
+            width: 40px;
+            height: 40px;
+            background: rgba(0, 255, 157, 0.1);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9998;
+            transition: all 0.3s ease;
+            transform: translate(-50%, -50%);
+        }
+
+        .cursor.hover {
+            transform: translate(-50%, -50%) scale(1.5);
+            background: rgba(0, 255, 157, 0.2);
+        }
+
+        /* Honeycomb Background */
+        .honeycomb-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            pointer-events: none;
+        }
+
+        .honeycomb-row {
+            display: flex;
+            justify-content: center;
+            margin-top: -13px; /* Overlap rows */
+        }
+
+        .honeycomb-row:nth-child(even) {
+            margin-left: 30px; /* Offset every other row */
+        }
+
+        .honeycomb {
+            width: 60px;
+            height: 34.64px;
+            background-color: rgba(0, 255, 157, 0.02);
+            position: relative;
+            margin: 0 2px;
+            transition: background-color 0.3s ease;
+        }
+
+        .honeycomb:before,
+        .honeycomb:after {
+            content: "";
+            position: absolute;
+            width: 0;
+            border-left: 30px solid transparent;
+            border-right: 30px solid transparent;
+        }
+
+        .honeycomb:before {
+            bottom: 100%;
+            border-bottom: 17.32px solid rgba(0, 255, 157, 0.02);
+            transition: border-bottom-color 0.3s ease;
+        }
+
+        .honeycomb:after {
+            top: 100%;
+            border-top: 17.32px solid rgba(0, 255, 157, 0.02);
+            transition: border-top-color 0.3s ease;
+        }
+
+        .honeycomb.highlight {
+            background-color: rgba(0, 255, 157, 0.08);
+        }
+
+        .honeycomb.highlight:before {
+            border-bottom-color: rgba(0, 255, 157, 0.08);
+        }
+
+        .honeycomb.highlight:after {
+            border-top-color: rgba(0, 255, 157, 0.08);
+        }
+
+        /* Circuit Board Pattern */
+        .circuit-pattern {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(90deg, rgba(0, 255, 157, 0.05) 1px, transparent 1px),
+                linear-gradient(rgba(0, 255, 157, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+            z-index: -1;
+            animation: circuitPulse 10s ease-in-out infinite;
+        }
+
+        @keyframes circuitPulse {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.6; }
+        }
+
+        /* Three.js Canvas */
+        #canvas-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 5%;
+            background: rgba(10, 14, 26, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(0, 255, 157, 0.2);
+        }
+
+        nav.scrolled {
+            padding: 1rem 5%;
+            background: rgba(10, 14, 26, 0.95);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: glow 2s ease-in-out infinite alternate;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        @keyframes glow {
+            from { filter: drop-shadow(0 0 5px rgba(0, 255, 157, 0.5)); }
+            to { filter: drop-shadow(0 0 20px rgba(0, 128, 255, 0.5)); }
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 0.5rem 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+            text-shadow: 0 0 10px rgba(0, 255, 157, 0.5);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 5%;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            text-align: center;
+            z-index: 1;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: textGradient 3s ease-in-out infinite;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        @keyframes textGradient {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .typewriter {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            border-right: 2px solid var(--primary);
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 50% { border-color: var(--primary); }
+            51%, 100% { border-color: transparent; }
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            position: relative;
+            overflow: hidden;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--dark);
+            box-shadow: 0 4px 15px rgba(0, 255, 157, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 6px 30px rgba(0, 255, 157, 0.5);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: var(--dark);
+            transform: translateY(-2px) scale(1.05);
+        }
+
+        /* Sections with Parallax */
+        .section-wrapper {
+            position: relative;
+            padding: 5rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-wrapper.in-view {
+            animation: slideInUp 0.8s ease-out;
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            animation: titlePulse 2s ease-in-out infinite;
+        }
+
+        @keyframes titlePulse {
+            0%, 100% { width: 50px; }
+            50% { width: 100px; }
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+            animation: float 3s ease-in-out infinite;
+            border: 2px solid var(--primary);
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .about-image img {
+            width: 100%;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, transparent, rgba(0, 255, 157, 0.2));
+            z-index: 1;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            color: var(--text-secondary);
+            opacity: 0;
+            animation: fadeIn 1s ease-out forwards;
+        }
+
+        .about-text p:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .skill-tag {
+            padding: 0.5rem 1rem;
+            background: rgba(0, 255, 157, 0.1);
+            border: 1px solid var(--primary);
+            border-radius: 25px;
+            font-size: 0.9rem;
+            color: var(--primary);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .skill-tag:hover {
+            background: var(--primary);
+            color: var(--dark);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 255, 157, 0.3);
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: rgba(30, 41, 59, 0.5);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 255, 157, 0.2);
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px) rotateX(5deg);
+            box-shadow: 0 10px 30px rgba(0, 255, 157, 0.2);
+            border-color: var(--primary);
+        }
+
+        .project-image {
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--dark);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-image::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transform: rotate(45deg);
+            transition: all 0.5s;
+        }
+
+        .project-card:hover .project-image::before {
+            animation: shine 0.5s ease-in-out;
+        }
+
+        @keyframes shine {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-content h3 {
+            margin-bottom: 0.5rem;
+            color: var(--text);
+            transition: color 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .project-card:hover .project-content h3 {
+            color: var(--primary);
+        }
+
+        .project-content p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .project-links a {
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .project-links a:hover {
+            color: var(--accent);
+            transform: scale(1.2) rotate(360deg);
+        }
+
+        /* Contact Section */
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+            padding: 0.5rem 1rem;
+            background: rgba(0, 255, 157, 0.1);
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            background: rgba(0, 255, 157, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .contact-item i {
+            color: var(--primary);
+            animation: iconPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes iconPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .social-links a {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(0, 255, 157, 0.1);
+            border: 1px solid var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .social-links a::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: var(--primary);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover::before {
+            width: 100%;
+            height: 100%;
+        }
+
+        .social-links a:hover {
+            color: var(--dark);
+            transform: translateY(-3px) rotate(360deg);
+        }
+
+        .social-links a i {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(10, 14, 26, 0.8);
+            color: var(--text-secondary);
+            border-top: 1px solid rgba(0, 255, 157, 0.2);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            body {
+                cursor: auto;
+            }
+
+            .cursor, .cursor-follower {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Custom Cursor -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <!-- Honeycomb Background -->
+    <div class="honeycomb-container" id="honeycomb-container"></div>
+
+    <!-- Circuit Board Pattern -->
+    <div class="circuit-pattern"></div>
+
+    <!-- Three.js Canvas Container -->
+    <div id="canvas-container"></div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="logo">JD</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>JOHN DOE</h1>
+            <p class="typewriter" id="typewriter"></p>
+            <div class="cta-buttons">
+                <a href="#projects" class="btn btn-primary">
+                    <i class="fas fa-terminal"></i> View My Work
+                </a>
+                <a href="#contact" class="btn btn-secondary">
+                    <i class="fas fa-code"></i> Get In Touch
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section-wrapper">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-content">
+            <div class="about-image">
+                <img src="https://picsum.photos/seed/portfolio/400/400.jpg" alt="John Doe">
+            </div>
+            <div class="about-text">
+                <p>I'm a passionate creative developer with expertise in building immersive web experiences using cutting-edge technologies like Three.js, WebGL, and modern JavaScript frameworks.</p>
+                <p>With a background in both design and development, I bridge the gap between creativity and functionality to deliver exceptional digital products that engage and inspire.</p>
+                <div class="skills">
+                    <span class="skill-tag">Three.js</span>
+                    <span class="skill-tag">WebGL</span>
+                    <span class="skill-tag">React</span>
+                    <span class="skill-tag">Node.js</span>
+                    <span class="skill-tag">UI/UX Design</span>
+                    <span class="skill-tag">Animation</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section-wrapper">
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-image">
+                    <i class="fas fa-microchip"></i>
+                </div>
+                <div class="project-content">
+                    <h3>3D Product Visualizer</h3>
+                    <p>Interactive 3D product configurator built with Three.js, allowing users to customize products in real-time.</p>
+                    <div class="project-links">
+                        <a href="#"><i class="fas fa-external-link-alt"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-image">
+                    <i class="fas fa-memory"></i>
+                </div>
+                <div class="project-content">
+                    <h3>WebGL Game Engine</h3>
+                    <p>Custom lightweight game engine for browser-based games with physics, lighting, and particle systems.</p>
+                    <div class="project-links">
+                        <a href="#"><i class="fas fa-external-link-alt"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-image">
+                    <i class="fas fa-server"></i>
+                </div>
+                <div class="project-content">
+                    <h3>Data Visualization Dashboard</h3>
+                    <p>Real-time 3D data visualization platform for complex datasets using WebGL and D3.js integration.</p>
+                    <div class="project-links">
+                        <a href="#"><i class="fas fa-external-link-alt"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section-wrapper">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="contact-content">
+            <p>I'm always interested in new opportunities and collaborations. Feel free to reach out!</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>john@example.com</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>+1 (555) 123-4567</span>
+                </div>
+            </div>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-dribbble"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2023 John Doe. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Honeycomb Background
+        function createHoneycomb() {
+            const container = document.getElementById('honeycomb-container');
+            const hexWidth = 60;
+            const hexHeight = 34.64; // Height of a hexagon with width 60
+            const rows = Math.ceil(window.innerHeight / (hexHeight * 0.75)) + 2;
+            const hexPerRow = Math.ceil(window.innerWidth / (hexWidth * 0.75)) + 2;
+            
+            for (let row = 0; row < rows; row++) {
+                const honeycombRow = document.createElement('div');
+                honeycombRow.className = 'honeycomb-row';
+                
+                // Offset every other row
+                if (row % 2 === 1) {
+                    honeycombRow.style.marginLeft = '30px';
+                }
+                
+                for (let col = 0; col < hexPerRow; col++) {
+                    const hex = document.createElement('div');
+                    hex.className = 'honeycomb';
+                    honeycombRow.appendChild(hex);
+                }
+                
+                container.appendChild(honeycombRow);
+            }
+        }
+        
+        createHoneycomb();
+        
+        // Honeycomb highlight effect with trail
+        const honeycombs = document.querySelectorAll('.honeycomb');
+        let mouseX = 0;
+        let mouseY = 0;
+        let highlightedHexagons = new Map(); // Store hexagons with their highlight time
+        
+        // Function to clean up old highlights
+        function cleanupHighlights() {
+            const currentTime = Date.now();
+            highlightedHexagons.forEach((timestamp, hex) => {
+                if (currentTime - timestamp > 400) { // Remove after 400ms
+                    hex.classList.remove('highlight');
+                    highlightedHexagons.delete(hex);
+                }
+            });
+        }
+        
+        // Set up periodic cleanup
+        setInterval(cleanupHighlights, 100);
+        
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            
+            // Find hexagons within radius
+            honeycombs.forEach(hex => {
+                const rect = hex.getBoundingClientRect();
+                const hexCenterX = rect.left + rect.width / 2;
+                const hexCenterY = rect.top + rect.height / 2;
+                
+                // Calculate distance between cursor and hexagon center
+                const distance = Math.sqrt(
+                    Math.pow(mouseX - hexCenterX, 2) + 
+                    Math.pow(mouseY - hexCenterY, 2)
+                );
+                
+                // Highlight if within radius
+                if (distance < 40) {
+                    if (!hex.classList.contains('highlight')) {
+                        hex.classList.add('highlight');
+                        highlightedHexagons.set(hex, Date.now());
+                    }
+                }
+            });
+        });
+
+        // Custom Cursor
+        const cursor = document.querySelector('.cursor');
+        const cursorFollower = document.querySelector('.cursor-follower');
+
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+            
+            setTimeout(() => {
+                cursorFollower.style.left = e.clientX + 'px';
+                cursorFollower.style.top = e.clientY + 'px';
+            }, 100);
+        });
+
+        document.querySelectorAll('a, button, .skill-tag, .project-card').forEach(elem => {
+            elem.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+            elem.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+        });
+
+        // Typewriter Effect
+        const texts = ['Creative Developer', '3D Enthusiast', 'UI/UX Designer', 'WebGL Expert'];
+        let textIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        const typewriterElement = document.getElementById('typewriter');
+
+        function typeWriter() {
+            const currentText = texts[textIndex];
+            
+            if (isDeleting) {
+                typewriterElement.textContent = currentText.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typewriterElement.textContent = currentText.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            let typeSpeed = isDeleting ? 50 : 100;
+
+            if (!isDeleting && charIndex === currentText.length) {
+                typeSpeed = 2000;
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                textIndex = (textIndex + 1) % texts.length;
+                typeSpeed = 500;
+            }
+
+            setTimeout(typeWriter, typeSpeed);
+        }
+
+        typeWriter();
+
+        // Three.js Computer-themed Scene
+        let scene, camera, renderer, cpu, motherboard, particles, particleSystem;
+        let time = 0;
+
+        function init() {
+            // Scene
+            scene = new THREE.Scene();
+            scene.fog = new THREE.Fog(0x0a0e1a, 1, 1000);
+
+            // Camera
+            camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            camera.position.z = 30;
+
+            // Renderer
+            renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setPixelRatio(window.devicePixelRatio);
+            document.getElementById('canvas-container').appendChild(renderer.domElement);
+
+            // Enhanced Lighting
+            const ambientLight = new THREE.AmbientLight(0x404040);
+            scene.add(ambientLight);
+
+            const pointLight = new THREE.PointLight(0x00ff9d, 1);
+            pointLight.position.set(10, 10, 10);
+            scene.add(pointLight);
+
+            const pointLight2 = new THREE.PointLight(0x0080ff, 0.5);
+            pointLight2.position.set(-10, -10, -10);
+            scene.add(pointLight2);
+
+            const directionalLight = new THREE.DirectionalLight(0xff00ff, 0.5);
+            directionalLight.position.set(0, 1, 0);
+            scene.add(directionalLight);
+
+            // CPU Structure
+            const cpuGroup = new THREE.Group();
+            
+            // CPU Base
+            const cpuBaseGeometry = new THREE.BoxGeometry(8, 1, 8);
+            const cpuBaseMaterial = new THREE.MeshBasicMaterial({
+                color: 0x00ff9d,
+                wireframe: true,
+                transparent: true,
+                opacity: 0.7
+            });
+            const cpuBase = new THREE.Mesh(cpuBaseGeometry, cpuBaseMaterial);
+            cpuGroup.add(cpuBase);
+            
+            // CPU Cores
+            for (let i = 0; i < 4; i++) {
+                const coreGeometry = new THREE.BoxGeometry(3, 0.5, 3);
+                const coreMaterial = new THREE.MeshBasicMaterial({
+                    color: 0x0080ff,
+                    wireframe: true,
+                    transparent: true,
+                    opacity: 0.7
+                });
+                const core = new THREE.Mesh(coreGeometry, coreMaterial);
+                
+                const angle = (i / 4) * Math.PI * 2;
+                core.position.x = Math.cos(angle) * 2.5;
+                core.position.z = Math.sin(angle) * 2.5;
+                core.position.y = 0.5;
+                
+                cpuGroup.add(core);
+            }
+            
+            // CPU Pins
+            const pinGeometry = new THREE.CylinderGeometry(0.1, 0.1, 2, 8);
+            const pinMaterial = new THREE.MeshBasicMaterial({
+                color: 0xff00ff,
+                wireframe: true,
+                transparent: true,
+                opacity: 0.5
+            });
+            
+            for (let i = 0; i < 20; i++) {
+                const pin = new THREE.Mesh(pinGeometry, pinMaterial);
+                
+                const x = (i % 5) - 2;
+                const z = Math.floor(i / 5) - 2;
+                
+                pin.position.x = x * 1.5;
+                pin.position.z = z * 1.5;
+                pin.position.y = -1.5;
+                
+                cpuGroup.add(pin);
+            }
+            
+            cpu = cpuGroup;
+            scene.add(cpu);
+
+            // Motherboard
+            const motherboardGeometry = new THREE.PlaneGeometry(30, 30, 10, 10);
+            const motherboardMaterial = new THREE.MeshBasicMaterial({
+                color: 0x0080ff,
+                wireframe: true,
+                transparent: true,
+                opacity: 0.2,
+                side: THREE.DoubleSide
+            });
+            motherboard = new THREE.Mesh(motherboardGeometry, motherboardMaterial);
+            motherboard.rotation.x = Math.PI / 2;
+            motherboard.position.y = -10;
+            scene.add(motherboard);
+
+            // Binary Particles
+            const particlesGeometry = new THREE.BufferGeometry();
+            const particlesCount = 2000;
+            const posArray = new Float32Array(particlesCount * 3);
+            const colors = new Float32Array(particlesCount * 3);
+
+            for(let i = 0; i < particlesCount * 3; i += 3) {
+                posArray[i] = (Math.random() - 0.5) * 100;
+                posArray[i + 1] = (Math.random() - 0.5) * 100;
+                posArray[i + 2] = (Math.random() - 0.5) * 100;
+
+                const color = new THREE.Color();
+                color.setHSL(0.3 + Math.random() * 0.2, 0.8, 0.5); // Green to blue range
+                colors[i] = color.r;
+                colors[i + 1] = color.g;
+                colors[i + 2] = color.b;
+            }
+
+            particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+            particlesGeometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+
+            const particlesMaterial = new THREE.PointsMaterial({
+                size: 0.05,
+                vertexColors: true,
+                transparent: true,
+                opacity: 0.8,
+                blending: THREE.AdditiveBlending
+            });
+
+            particleSystem = new THREE.Points(particlesGeometry, particlesMaterial);
+            scene.add(particleSystem);
+
+            // Window resize
+            window.addEventListener('resize', onWindowResize);
+
+            animate();
+        }
+
+        function onWindowResize() {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        }
+
+        function animate() {
+            requestAnimationFrame(animate);
+            time += 0.01;
+
+            // Rotate CPU
+            cpu.rotation.y += 0.005;
+            cpu.rotation.x = Math.sin(time) * 0.1;
+            
+            // Animate CPU cores
+            cpu.children.forEach((child, index) => {
+                if (index > 0 && index <= 4) { // CPU cores
+                    child.rotation.y += 0.02;
+                    child.position.y = 0.5 + Math.sin(time + index) * 0.2;
+                }
+            });
+
+            // Pulse motherboard
+            const scale = 1 + Math.sin(time * 2) * 0.05;
+            motherboard.scale.set(scale, scale, scale);
+
+            // Rotate particles
+            particleSystem.rotation.x += 0.0005;
+            particleSystem.rotation.y += 0.001;
+
+            // Dynamic particle colors
+            const colors = particleSystem.geometry.attributes.color;
+            for (let i = 0; i < colors.count; i++) {
+                const hue = (time * 0.05 + i * 0.001) % 0.5 + 0.3; // Green to blue range
+                const color = new THREE.Color();
+                color.setHSL(hue, 0.8, 0.5);
+                colors.setXYZ(i, color.r, color.g, color.b);
+            }
+            colors.needsUpdate = true;
+
+            // Mouse interaction
+            camera.position.x += (mouseX * 10 - camera.position.x) * 0.05;
+            camera.position.y += (mouseY * 10 - camera.position.y) * 0.05;
+            camera.lookAt(scene.position);
+
+            renderer.render(scene, camera);
+        }
+
+        // Initialize Three.js
+        init();
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for section animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in-view');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.section-wrapper').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>

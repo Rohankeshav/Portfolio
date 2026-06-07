@@ -1,0 +1,1136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rohan Keshav Harish | Agentic AI Command Center</title>
+    <meta name="description" content="Agentic AI themed portfolio of Rohan Keshav Harish featuring full-stack engineering, LLM workflows, and shipped AI projects.">
+    <meta property="og:title" content="Rohan Keshav Harish | Agentic AI Command Center">
+    <meta property="og:description" content="Explore execution history, agent missions, and AI engineering work in an interactive command center portfolio.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Rohan Keshav Harish | Agentic AI Command Center">
+    <meta name="twitter:description" content="Agentic AI portfolio with mission-focused projects and full-stack engineering case studies.">
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" href="character-3d.png">
+    <meta name="theme-color" content="#070B14">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+</head>
+
+<body>
+    <a class="skip-link" href="#home">Skip to main content</a>
+
+    <!-- Boot sequence (dismissed on load) -->
+    <div class="boot-screen" id="boot-screen" aria-hidden="true">
+        <div class="boot-content">
+            <div class="boot-brand">
+                <span class="boot-dot"></span>
+                AGENTIC.CONSOLE &middot; v2.1.0
+            </div>
+            <pre class="boot-log" id="boot-log" aria-hidden="true"></pre>
+            <div class="boot-skip">press any key or click to skip</div>
+        </div>
+    </div>
+
+    <!-- Achievement toast (Konami / easter egg) -->
+    <div class="achievement-toast" id="achievement-toast" role="status" aria-live="polite" hidden>
+        <div class="achievement-icon"><i class="fas fa-shield-halved"></i></div>
+        <div class="achievement-body">
+            <div class="achievement-title">ACHIEVEMENT UNLOCKED</div>
+            <div class="achievement-desc" id="achievement-desc">Ghost Protocol</div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="nav-left">
+                <span class="logo">AGENTIC.CONSOLE</span>
+                <span class="nav-status">
+                    <span class="status-dot"></span>
+                    SYSTEM ONLINE
+                </span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Console</a></li>
+                <li><a href="#about">System Profile</a></li>
+                <li><a href="#education">Knowledge Base</a></li>
+                <li><a href="#skills">Capability Matrix</a></li>
+                <li><a href="#experience">Operations Log</a></li>
+                <li><a href="#projects">Execution History</a></li>
+                <li><a href="#contact">Open Channel</a></li>
+            </ul>
+            <button class="nav-hint" id="cmd-trigger" aria-label="Open command palette" type="button">
+                <i class="fas fa-terminal"></i>
+                <span>JUMP</span>
+                <kbd>Ctrl</kbd>
+                <kbd>K</kbd>
+            </button>
+            <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+        <ul>
+            <li><a href="#home">Console</a></li>
+            <li><a href="#about">System Profile</a></li>
+            <li><a href="#education">Knowledge Base</a></li>
+            <li><a href="#skills">Capability Matrix</a></li>
+            <li><a href="#experience">Operations Log</a></li>
+            <li><a href="#projects">Execution History</a></li>
+            <li><a href="#contact">Open Channel</a></li>
+        </ul>
+    </div>
+
+    <main id="main-content">
+    <!-- Hero Section -->
+    <section id="home" class="hero" data-section-index="0">
+        <div class="hero-scanline" aria-hidden="true"></div>
+        <div class="hero-content">
+            <!-- Role Tags -->
+            <div class="hero-roles">
+                <span class="role-tag">SOFTWARE + DATA PIPELINES</span>
+                <span class="role-tag active">CLOUD-NATIVE ON AWS</span>
+                <span class="role-tag">AGENTIC AI WORKFLOWS</span>
+            </div>
+
+            <div class="hero-name-container">
+                <h1 class="hero-name">ROHAN</h1>
+            </div>
+
+            <!-- Bottom Section -->
+            <div class="hero-bottom">
+                <div class="hero-quote">
+                    <p class="quote-text">"Ship the messy first pass.<br>Let the iterations do the heavy lifting."</p>
+                </div>
+                <div class="hero-cta">
+                    <a href="rohan.pdf" class="btn-book resume-btn" target="_blank" rel="noopener noreferrer">
+                        <span class="resume-icon" aria-hidden="true"><i class="fas fa-download"></i></span>
+                        <span class="resume-text">
+                            <span class="resume-verb">LOAD RESUME</span>
+                            <span class="resume-file">&gt; rohan.pdf</span>
+                        </span>
+                        <span class="resume-sheen" aria-hidden="true"></span>
+                    </a>
+                    <div class="social-icons">
+                        <a href="https://www.linkedin.com/in/rohankeshavh" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn profile" data-handle="@rohankeshavh" data-platform="linkedin">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://github.com/Rohankeshav" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="GitHub profile" data-handle="@Rohankeshav" data-platform="github">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="mailto:rohankeshavh@gmail.com" class="social-icon" aria-label="Email Rohan" data-handle="rohankeshavh@gmail.com" data-platform="email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section" data-section-index="1">
+        <div class="about-container">
+            <!-- Left Side - Operator Dossier -->
+            <div class="about-left">
+                <article class="operator-card" aria-label="Operator profile">
+                    <span class="op-card-bracket tl" aria-hidden="true"></span>
+                    <span class="op-card-bracket tr" aria-hidden="true"></span>
+                    <span class="op-card-bracket bl" aria-hidden="true"></span>
+                    <span class="op-card-bracket br" aria-hidden="true"></span>
+                    <span class="op-card-glow" aria-hidden="true"></span>
+
+                    <header class="op-card-header">
+                        <span class="op-id">// RK-001</span>
+                        <span class="op-status"><span class="op-dot" aria-hidden="true"></span> ONLINE</span>
+                    </header>
+
+                    <div class="op-avatar-stage">
+                        <div class="op-rings" aria-hidden="true">
+                            <span class="op-ring r1"></span>
+                            <span class="op-ring r2"></span>
+                            <span class="op-ring r3"></span>
+                        </div>
+                        <div class="op-avatar op-character" role="img" aria-label="Operator portrait">
+                            <img class="op-character-img" src="character.png" alt="Rohan illustration" loading="lazy" width="291" height="800">
+                            <span class="op-scan" aria-hidden="true"></span>
+                            <span class="op-tint" aria-hidden="true"></span>
+                        </div>
+                        <div class="op-base" aria-hidden="true"></div>
+                    </div>
+
+                    <div class="op-name-block">
+                        <span class="op-name-tag">// OPERATOR</span>
+                        <h3 class="op-name">Rohan Keshav</h3>
+                        <p class="op-role">Software Engineer</p>
+                    </div>
+
+                    <ul class="op-meta">
+                        <li>
+                            <span class="op-meta-key"><i class="fas fa-map-marker-alt" aria-hidden="true"></i> LOC</span>
+                            <span class="op-meta-val">Texas, USA</span>
+                        </li>
+                        <li>
+                            <span class="op-meta-key"><i class="fas fa-bolt" aria-hidden="true"></i> NOW</span>
+                            <span class="op-meta-val">Shipping backend systems</span>
+                        </li>
+                        <li>
+                            <span class="op-meta-key"><i class="fas fa-satellite-dish" aria-hidden="true"></i> AVAIL</span>
+                            <span class="op-meta-val"><span class="op-pulse" aria-hidden="true"></span> Open to new missions</span>
+                        </li>
+                    </ul>
+
+                    <footer class="op-card-footer">
+                        <span>SYS: 0xR0H4N</span>
+                        <span class="op-card-stamp">v2.4.1 // STABLE</span>
+                    </footer>
+                </article>
+            </div>
+
+            <!-- Right Side - Content -->
+            <div class="about-right">
+                <!-- Stats Bar (resume facts) -->
+                <div class="stats-bar">
+                    <div class="stat-item" data-accent="cyan">
+                        <span class="stat-icon" aria-hidden="true"><i class="fas fa-briefcase"></i></span>
+                        <span class="stat-value">
+                            <span class="stat-number" data-count="1">0</span><span class="stat-suffix">+</span>
+                        </span>
+                        <span class="stat-label">YEARS EXPERIENCE</span>
+                        <span class="stat-context">and counting</span>
+                    </div>
+                    <div class="stat-item" data-accent="violet">
+                        <span class="stat-icon" aria-hidden="true"><i class="fas fa-rocket"></i></span>
+                        <span class="stat-value">
+                            <span class="stat-number" data-count="9" data-pad="2">00</span><span class="stat-suffix">+</span>
+                        </span>
+                        <span class="stat-label">SYSTEMS SHIPPED</span>
+                        <span class="stat-context">prod &amp; live</span>
+                    </div>
+                    <div class="stat-item" data-accent="mint">
+                        <span class="stat-icon" aria-hidden="true"><i class="fas fa-people-group"></i></span>
+                        <span class="stat-value">
+                            <span class="stat-number" data-count="3" data-pad="2">00</span>
+                        </span>
+                        <span class="stat-label">TEAMS SHIPPED WITH</span>
+                        <span class="stat-context">across industries</span>
+                    </div>
+                </div>
+
+                <!-- About Content (CLI notebook) -->
+                <div class="about-content">
+                    <div class="about-content-header">
+                        <span class="about-tag">// SYSTEM_PROFILE.MD</span>
+                        <span class="about-meta">last_synced &middot; today</span>
+                    </div>
+
+                    <div class="about-cli">
+                        <div class="cli-line">
+                            <span class="cli-prompt">&gt;</span>
+                            <span class="cli-cmd">cat system_profile.md</span>
+                        </div>
+                        <div class="cli-output cli-output-block">
+                            <p>
+                                <span class="highlight">Software engineer</span> who builds reliable systems. Strong on backend services, data flow, and the unsexy plumbing that keeps things alive at 3am. I care less about the trend cycle and more about the parts that quietly hold a product together.
+                            </p>
+                            <p>
+                                Daily driver is <span class="highlight">Python</span> for backend services, with <span class="highlight">SQL</span> and event-driven pipelines holding the data layer together. Years spent profiling slow paths, refactoring legacy modules into clean abstractions, working with APIs that don&rsquo;t leak complexity, and shipping the kind of changes that show up on a graph the next morning.
+                            </p>
+                            <p>
+                                Increasingly drawn to <span class="highlight">AWS</span> as the deployment target of choice and <span class="highlight">agentic AI</span> as a way for small teams to ship big work. Currently exploring how S3, Glue, Redshift, and Fargate slot into modern data flows, and where LLM-driven agents earn their keep beyond the demo phase. Always looking for the spot where solid engineering meets the new stack.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="about-cards">
+                        <article class="profile-card" data-accent="cyan">
+                            <span class="profile-card-icon" aria-hidden="true"><i class="fas fa-bullseye"></i></span>
+                            <div class="profile-card-body">
+                                <span class="profile-card-label">Currently</span>
+                                <span class="profile-card-value">Shipping backend systems</span>
+                            </div>
+                        </article>
+                        <article class="profile-card" data-accent="violet">
+                            <span class="profile-card-icon" aria-hidden="true"><i class="fas fa-cube"></i></span>
+                            <div class="profile-card-body">
+                                <span class="profile-card-label">Philosophy</span>
+                                <span class="profile-card-value">Idea &rarr; Build &rarr; iterate &rarr; Repeat</span>
+                            </div>
+                        </article>
+                        <article class="profile-card" data-accent="mint">
+                            <span class="profile-card-icon" aria-hidden="true"><i class="fas fa-flask"></i></span>
+                            <div class="profile-card-body">
+                                <span class="profile-card-label">Exploring</span>
+                                <span class="profile-card-value">AWS and agentic AI</span>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="education-section" data-section-index="2">
+        <div class="section-header">
+            <div class="section-tag-box">
+                <span class="section-tag">■ EDITORIAL / ACADEMIC_RECORD</span>
+            </div>
+        </div>
+
+        <div class="section-title-row">
+            <div class="section-titles">
+                <h2 class="section-title-main">KNOWLEDGE</h2>
+                <h2 class="section-title-accent">BASE</h2>
+            </div>
+            <div class="section-desc-box">
+                <p>An editorial spread on formal CS formation.</p>
+            </div>
+        </div>
+
+        <div class="divider-line"></div>
+
+        <div class="edu-editorial" role="region" aria-label="Academic record">
+            <div class="edu-editorial-inner">
+                <header class="edu-mag-mast">
+                    <p class="edu-mag-series">Academic dispatch</p>
+                    <h3 class="edu-mag-headline">
+                        Formal CS training 
+                        <span class="edu-mag-headline-accent">meant to be read, not skimmed for buzzwords.</span>
+                    </h3>
+                    <div class="edu-mag-rule" aria-hidden="true"></div>
+                </header>
+
+                <div class="edu-mag-layout">
+                    <div class="edu-mag-stories">
+                        <article class="edu-story edu-story--cover">
+                            <div class="edu-story-grid">
+                                <div class="edu-story-media">
+                                    <span class="edu-story-badge">UTA</span>
+                                    <img src="UTA.png" alt="University of Texas at Arlington mark" class="edu-story-mark" width="80" height="80" loading="lazy">
+                                </div>
+                                <div class="edu-story-text">
+                                    <p class="edu-story-overline">Aug 2023 — May 2025 · Arlington, TX</p>
+                                    <h4 class="edu-story-institution">University of Texas at Arlington</h4>
+                                    <p class="edu-story-degree">Master of Science, Computer Science</p>
+                                    <p class="edu-story-lede">Tracks in Intelligent Systems, Cloud Computing &amp; Databases—coursework toward reliable ML-backed systems and data-heavy backends.</p>
+                                    <span class="edu-story-flag">Cover story · Latest degree</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="edu-story">
+                            <div class="edu-story-grid">
+                                <div class="edu-story-media">
+                                    <span class="edu-story-badge edu-story-badge--vit">VIT</span>
+                                    <img src="VIT.jpg" alt="Vemana Institute of Technology mark" class="edu-story-mark" width="80" height="80" loading="lazy">
+                                </div>
+                                <div class="edu-story-text">
+                                    <p class="edu-story-overline">Aug 2018 — Jul 2022 · Bangalore, India</p>
+                                    <h4 class="edu-story-institution">Vemana Institute of Technology</h4>
+                                    <p class="edu-story-degree">Bachelor of Engineering, Information Science</p>
+                                    <p class="edu-story-body">Concentration in Artificial Intelligence &amp; Machine Learning—foundational theory and practice before graduate depth.</p>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <aside class="edu-mag-rail">
+                        <blockquote class="edu-pull-quote">
+                            <span class="edu-pull-number">3.92</span>
+                            <span class="edu-pull-denom">/ 4.00</span>
+                            <span class="edu-pull-label">Peak GPA · graduate coursework</span>
+                        </blockquote>
+                        <p class="edu-mag-blurb">
+                            <span class="edu-mag-blurb-tag">Through-line</span>
+                            AI · Cloud · Data systems—the spine connecting both degrees below.
+                        </p>
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills-section" data-section-index="3">
+        <div class="section-header">
+            <div class="section-tag-box">
+                <span class="section-tag">■ SYSTEM.LOG / CAPABILITY_MATRIX</span>
+            </div>
+        </div>
+
+        <div class="section-title-row">
+            <div class="section-titles">
+                <h2 class="section-title-main">CAPABILITY</h2>
+                <h2 class="section-title-accent">MATRIX</h2>
+            </div>
+            <div class="section-desc-box">
+                <p>Hover a tile to light the logo and reveal the skill—idle tiles stay muted for a calmer scan.</p>
+            </div>
+        </div>
+
+        <div class="divider-line"></div>
+
+        <div class="skills-bento-wrap">
+            <p class="skills-bento-lede">Capability matrix · brand marks · hover to identify</p>
+
+            <div class="skills-bento" aria-label="Technical skills by category">
+                <article class="skills-bento-card skills-bento-card--languages">
+                    <header class="skills-bento-head">
+                        <span class="bento-dot bento-dot--languages" aria-hidden="true"></span>
+                        <div class="skills-bento-titles">
+                            <h3 class="skills-bento-name">Languages</h3>
+                            <p class="skills-bento-meta">Polyglot · daily use</p>
+                        </div>
+                        <span class="skills-bento-count">9</span>
+                    </header>
+                    <div class="skills-logo-grid" role="group" aria-label="Language skills">
+                        <button type="button" class="skill-logo-card" aria-label="Python" title="Python"><span class="skill-logo-frame"><img src="https://cdn.jsdelivr.net/npm/simple-icons/icons/python.svg" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="skill-logo-name" aria-hidden="true">Python</span></button>
+                        <button type="button" class="skill-logo-card" aria-label="C++" title="C++"><span class="skill-logo-frame"><img src="https://cdn.jsdelivr.net/npm/simple-icons/icons/cplusplus.svg" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="skill-logo-name" aria-hidden="true">C++</span></button>
+                        <button type="button" class="skill-logo-card" aria-label="Java" title="Java"><span class="skill-logo-frame"><img src="https://cdn.jsdelivr.net/npm/simple-icons/icons/java.svg" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="skill-logo-name" aria-hidden="true">Java</span></button>
+                        <button type="button" class="skill-logo-card" aria-label="JavaScript" title="JavaScript"><span class="skill-logo-frame"><img src="https://cdn.jsdelivr.net/npm/simple-icons/icons/javascript.svg" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="skill-logo-name" aria-hidden="true">JavaScript</span></button>
+                        <button type="button" class="skill-logo-card" aria-label="Scala" title="Scala"><span class="skill-logo-frame"><img src="https://cdn.jsdelivr.net/npm/simple-icons/icons/scala.svg" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="skill-logo-name" aria-hidden="true">Scala</span></button>
+                        <button type="button" class="skill-logo-card" aria-label="PHP" title="PHP"><span class="skill-logo-frame"><img src="https://cdn.jsdelivr.net/npm/simple-icons/icons/php.svg" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="skill-logo-name" aria-hidden="true">PHP</span></button>
+                        <button type="button" class="skill-logo-card" aria-label="HTML" title="HTML"><span class="skill-logo-frame"><img src="https://cdn.jsdelivr.net/npm/simple-icons/icons/html5.svg" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="skill-logo-name" aria-hidden="true">HTML</span></button>
+                        <button type="button" class="skill-logo-card" aria-label="CSS" title="CSS"><span class="skill-logo-frame"><img src="https://cdn.jsdelivr.net/npm/simple-icons/icons/css3.svg" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="skill-logo-name" aria-hidden="true">CSS</span></button>
+                        <button type="button" class="skill-logo-card" aria-label="Matlab" title="Matlab"><span class="skill-logo-frame"><img src="https://cdn.jsdelivr.net/npm/simple-icons/icons/mathworks.svg" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="skill-logo-name" aria-hidden="true">Matlab</span></button>
+                    </div>
+                </article>
+
+                <article class="skills-bento-card skills-bento-card--cloud">
+                    <header class="skills-bento-head">
+                        <span class="bento-dot bento-dot--cloud" aria-hidden="true"></span>
+                        <div class="skills-bento-titles">
+                            <h3 class="skills-bento-name">Data + Cloud</h3>
+                            <p class="skills-bento-meta">Production · pipelines</p>
+                        </div>
+                        <span class="skills-bento-count">9</span>
+                    </header>
+                    <div class="skills-logo-grid" role="group" aria-label="Data and cloud skills">
+                        <button type="button" class="skill-logo-card" aria-label="AWS Lambda" title="AWS Lambda"><span class="skill-logo-frame"><img src="https://cdn.jsdelivr.net/npm/simple-icons/icons/awslambda.svg" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="skill-logo-name" aria-hidden="true">AWS Lambda</span></button>
+                        <button type="button" class="skill-logo-card" aria-label="AWS Fargate" title="AWS Fargate"><span class="skill-logo-frame"><img src="https://cdn.jsdelivr.net/npm/simple-icons/icons/amazonecs.svg" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="skill-logo-name" aria-hidden="true">Fargate</span></button>
+                        <button type="button" class="skill-logo-card" aria-label="AWS Glue" title="AWS Glue"><span class="skill-logo-frame"><img src="https://cdn.jsdelivr.net/npm/simple-icons/icons/amazonaws.svg" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="skill-logo-name" aria-hidden="true">Glue</span></button>
+                        <button type="button" class="skill-logo-card" aria-label="Amazon Redshift" title="Amazon Redshift"><span class="skill-logo-frame"><img src="https://cdn.jsdelivr.net/npm/simple-icons/icons/amazonredshift.svg" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="skill-logo-name" aria-hidden="true">Redshift</span></button>
+                        <button type="button" class="skill-logo-card" aria-label="Amazon S3" title="Amazon S3"><span class="skill-logo-frame"><img src="https://cdn.jsdelivr.net/npm/simple-icons/icons/amazons3.svg" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="skill-logo-name" aria-hidden="true">S3</span></button>
+                        <button type="button" class="skill-logo-card" aria-label="PostgreSQL" title="PostgreSQL"><span class="skill-logo-frame"><img src="https://cdn.jsdelivr.net/npm/simple-icons/icons/postgresql.svg" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="skill-logo-name" aria-hidden="true">PostgreSQL</span></button>
+                        <button type="button" class="skill-logo-card" aria-label="Apache Cassandra" title="Apache Cassandra"><span class="skill-logo-frame"><img src="https://cdn.jsdelivr.net/npm/simple-icons/icons/apachecassandra.svg" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="skill-logo-name" aria-hidden="true">Cassandra</span></button>
+                        <button type="button" class="skill-logo-card" aria-label="Spark SQL" title="Spark SQL"><span class="skill-logo-frame"><img src="https://cdn.jsdelivr.net/npm/simple-icons/icons/apachespark.svg" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="skill-logo-name" aria-hidden="true">SparkSQL</span></button>
+                        <button type="button" class="skill-logo-card" aria-label="SQL" title="SQL"><span class="skill-logo-frame"><img src="https://cdn.jsdelivr.net/npm/simple-icons/icons/mysql.svg" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="skill-logo-name" aria-hidden="true">SQL</span></button>
+                    </div>
+                </article>
+
+                <article class="skills-bento-card skills-bento-card--ml">
+                    <header class="skills-bento-head">
+                        <span class="bento-dot bento-dot--ml" aria-hidden="true"></span>
+                        <div class="skills-bento-titles">
+                            <h3 class="skills-bento-name">ML / DL</h3>
+                            <p class="skills-bento-meta">Applied stacks</p>
+                        </div>
+                        <span class="skills-bento-count">6</span>
+                    </header>
+                    <div class="skills-logo-grid" role="group" aria-label="Machine learning skills">
+                        <button type="button" class="skill-logo-card" aria-label="PyTorch" title="PyTorch"><span class="skill-logo-frame"><img src="https://cdn.jsdelivr.net/npm/simple-icons/icons/pytorch.svg" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="skill-logo-name" aria-hidden="true">PyTorch</span></button>
+                        <button type="button" class="skill-logo-card" aria-label="TensorFlow" title="TensorFlow"><span class="skill-logo-frame"><img src="https://cdn.jsdelivr.net/npm/simple-icons/icons/tensorflow.svg" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="skill-logo-name" aria-hidden="true">TensorFlow</span></button>
+                        <button type="button" class="skill-logo-card" aria-label="OpenCV" title="OpenCV"><span class="skill-logo-frame"><img src="https://cdn.jsdelivr.net/npm/simple-icons/icons/opencv.svg" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="skill-logo-name" aria-hidden="true">OpenCV</span></button>
+                        <button type="button" class="skill-logo-card" aria-label="Pandas" title="Pandas"><span class="skill-logo-frame"><img src="https://cdn.jsdelivr.net/npm/simple-icons/icons/pandas.svg" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="skill-logo-name" aria-hidden="true">Pandas</span></button>
+                        <button type="button" class="skill-logo-card" aria-label="NumPy" title="NumPy"><span class="skill-logo-frame"><img src="https://cdn.jsdelivr.net/npm/simple-icons/icons/numpy.svg" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="skill-logo-name" aria-hidden="true">NumPy</span></button>
+                        <button type="button" class="skill-logo-card" aria-label="NLP" title="NLP"><span class="skill-logo-frame"><img src="https://cdn.jsdelivr.net/npm/simple-icons/icons/huggingface.svg" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="skill-logo-name" aria-hidden="true">NLP</span></button>
+                    </div>
+                </article>
+
+                <article class="skills-bento-card skills-bento-card--ai">
+                    <header class="skills-bento-head">
+                        <span class="bento-dot bento-dot--ai" aria-hidden="true"></span>
+                        <div class="skills-bento-titles">
+                            <h3 class="skills-bento-name">AI &amp; Automation</h3>
+                            <p class="skills-bento-meta">Agents · workflows</p>
+                        </div>
+                        <span class="skills-bento-count">5</span>
+                    </header>
+                    <div class="skills-logo-grid" role="group" aria-label="AI and automation skills">
+                        <button type="button" class="skill-logo-card" aria-label="Agentic AI" title="Agentic AI"><span class="skill-logo-frame"><img src="https://cdn.jsdelivr.net/npm/simple-icons/icons/openai.svg" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="skill-logo-name" aria-hidden="true">Agentic AI</span></button>
+                        <button type="button" class="skill-logo-card" aria-label="LangChain" title="LangChain"><span class="skill-logo-frame"><img src="https://cdn.jsdelivr.net/npm/simple-icons/icons/langchain.svg" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="skill-logo-name" aria-hidden="true">LangChain</span></button>
+                        <button type="button" class="skill-logo-card" aria-label="Large language models" title="LLMs"><span class="skill-logo-frame"><img src="https://cdn.jsdelivr.net/npm/simple-icons/icons/anthropic.svg" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="skill-logo-name" aria-hidden="true">LLMs</span></button>
+                        <button type="button" class="skill-logo-card" aria-label="n8n" title="n8n"><span class="skill-logo-frame"><img src="https://cdn.jsdelivr.net/npm/simple-icons/icons/n8n.svg" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="skill-logo-name" aria-hidden="true">n8n</span></button>
+                        <button type="button" class="skill-logo-card" aria-label="Workflow automation" title="Workflows"><span class="skill-logo-frame"><img src="https://cdn.jsdelivr.net/npm/simple-icons/icons/githubactions.svg" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="skill-logo-name" aria-hidden="true">Workflows</span></button>
+                    </div>
+                </article>
+
+                <article class="skills-bento-card skills-bento-card--ui">
+                    <header class="skills-bento-head">
+                        <span class="bento-dot bento-dot--ui" aria-hidden="true"></span>
+                        <div class="skills-bento-titles">
+                            <h3 class="skills-bento-name">UI / Frontend</h3>
+                            <p class="skills-bento-meta">Shipping interfaces</p>
+                        </div>
+                        <span class="skills-bento-count">6</span>
+                    </header>
+                    <div class="skills-logo-grid" role="group" aria-label="UI and frontend skills">
+                        <button type="button" class="skill-logo-card" aria-label="React" title="React"><span class="skill-logo-frame"><img src="https://cdn.jsdelivr.net/npm/simple-icons/icons/react.svg" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="skill-logo-name" aria-hidden="true">React.js</span></button>
+                        <button type="button" class="skill-logo-card" aria-label="Node.js" title="Node.js"><span class="skill-logo-frame"><img src="https://cdn.jsdelivr.net/npm/simple-icons/icons/nodedotjs.svg" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="skill-logo-name" aria-hidden="true">Node.js</span></button>
+                        <button type="button" class="skill-logo-card" aria-label="Tailwind CSS" title="Tailwind CSS"><span class="skill-logo-frame"><img src="https://cdn.jsdelivr.net/npm/simple-icons/icons/tailwindcss.svg" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="skill-logo-name" aria-hidden="true">TailwindCSS</span></button>
+                        <button type="button" class="skill-logo-card" aria-label="Streamlit" title="Streamlit"><span class="skill-logo-frame"><img src="https://cdn.jsdelivr.net/npm/simple-icons/icons/streamlit.svg" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="skill-logo-name" aria-hidden="true">Streamlit</span></button>
+                        <button type="button" class="skill-logo-card" aria-label="REST APIs" title="REST API"><span class="skill-logo-frame"><img src="https://cdn.jsdelivr.net/npm/simple-icons/icons/swagger.svg" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="skill-logo-name" aria-hidden="true">REST API</span></button>
+                        <button type="button" class="skill-logo-card" aria-label="Responsive design" title="Responsive Design"><span class="skill-logo-frame"><img src="https://cdn.jsdelivr.net/npm/simple-icons/icons/css3.svg" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="skill-logo-name" aria-hidden="true">Responsive</span></button>
+                    </div>
+                </article>
+
+                <article class="skills-bento-card skills-bento-card--tools">
+                    <header class="skills-bento-head">
+                        <span class="bento-dot bento-dot--tools" aria-hidden="true"></span>
+                        <div class="skills-bento-titles">
+                            <h3 class="skills-bento-name">Tools &amp; DevOps</h3>
+                            <p class="skills-bento-meta">Delivery · observability-adjacent</p>
+                        </div>
+                        <span class="skills-bento-count">9</span>
+                    </header>
+                    <div class="skills-logo-grid" role="group" aria-label="Tools and DevOps skills">
+                        <button type="button" class="skill-logo-card" aria-label="Docker" title="Docker"><span class="skill-logo-frame"><img src="https://cdn.jsdelivr.net/npm/simple-icons/icons/docker.svg" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="skill-logo-name" aria-hidden="true">Docker</span></button>
+                        <button type="button" class="skill-logo-card" aria-label="Git" title="Git"><span class="skill-logo-frame"><img src="https://cdn.jsdelivr.net/npm/simple-icons/icons/git.svg" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="skill-logo-name" aria-hidden="true">Git</span></button>
+                        <button type="button" class="skill-logo-card" aria-label="GitHub" title="GitHub"><span class="skill-logo-frame"><img src="https://cdn.jsdelivr.net/npm/simple-icons/icons/github.svg" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="skill-logo-name" aria-hidden="true">GitHub</span></button>
+                        <button type="button" class="skill-logo-card" aria-label="Jira" title="Jira"><span class="skill-logo-frame"><img src="https://cdn.jsdelivr.net/npm/simple-icons/icons/jira.svg" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="skill-logo-name" aria-hidden="true">Jira</span></button>
+                        <button type="button" class="skill-logo-card" aria-label="Linux" title="Linux"><span class="skill-logo-frame"><img src="https://cdn.jsdelivr.net/npm/simple-icons/icons/linux.svg" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="skill-logo-name" aria-hidden="true">Linux</span></button>
+                        <button type="button" class="skill-logo-card" aria-label="Bash" title="Bash"><span class="skill-logo-frame"><img src="https://cdn.jsdelivr.net/npm/simple-icons/icons/gnubash.svg" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="skill-logo-name" aria-hidden="true">Bash</span></button>
+                        <button type="button" class="skill-logo-card" aria-label="Visual Studio Code" title="VS Code"><span class="skill-logo-frame"><img src="https://cdn.jsdelivr.net/npm/simple-icons/icons/visualstudiocode.svg" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="skill-logo-name" aria-hidden="true">VS Code</span></button>
+                        <button type="button" class="skill-logo-card" aria-label="Power BI" title="Power BI"><span class="skill-logo-frame"><img src="https://cdn.jsdelivr.net/npm/simple-icons/icons/powerbi.svg" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="skill-logo-name" aria-hidden="true">Power BI</span></button>
+                        <button type="button" class="skill-logo-card" aria-label="Apache Spark" title="Apache Spark"><span class="skill-logo-frame"><img src="https://cdn.jsdelivr.net/npm/simple-icons/icons/apachespark.svg" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="skill-logo-name" aria-hidden="true">Spark</span></button>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience-section" data-section-index="4">
+        <div class="section-header">
+            <div class="section-tag-box">
+                <span class="section-tag">■ SYSTEM.LOG / OPERATIONS_LOG</span>
+            </div>
+        </div>
+
+        <div class="section-title-row">
+            <div class="section-titles">
+                <h2 class="section-title-main">OPERATIONS</h2>
+                <h2 class="section-title-accent">LOG</h2>
+            </div>
+            <div class="section-desc-box">
+                <p>Reverse-chronological roles—role, org, tenure, stack, and impact lines recruiters scan first (ownership + metrics, CAR-style bullets).</p>
+            </div>
+        </div>
+
+        <div class="divider-line"></div>
+
+        <div class="ops-strip">
+            <div class="ops-chip">[ ORDER: NEWEST FIRST ]</div>
+            <div class="ops-chip">[ STRUCTURE: ROLE · IMPACT · STACK ]</div>
+            <div class="ops-chip">[ SIGNALS: METRICS + OWNERSHIP ]</div>
+        </div>
+
+        <div class="ops-log-layout">
+            <aside class="ops-sidebar" aria-label="Operations log entry index">
+                <div class="ops-sidebar-head">
+                    <span class="ops-sidebar-title">ENTRY INDEX</span>
+                    <span class="ops-sidebar-meta">05 DEPLOYMENTS</span>
+                </div>
+                <ol class="ops-sidebar-list">
+                    <li class="ops-idx-item active" data-target="ops-entry-01" tabindex="0" role="link" aria-label="Jump to Software Engineer at Arcadis">
+                        <span class="ops-idx-dot status-active"></span>
+                        <span class="ops-idx-num">01</span>
+                        <span class="ops-idx-name">Arcadis · Engineer</span>
+                        <span class="ops-idx-tag">ACTIVE</span>
+                    </li>
+                    <li class="ops-idx-item" data-target="ops-entry-02" tabindex="0" role="link" aria-label="Jump to AI Research Engineer at UTA">
+                        <span class="ops-idx-dot status-completed"></span>
+                        <span class="ops-idx-num">02</span>
+                        <span class="ops-idx-name">UTA · AI Research</span>
+                        <span class="ops-idx-tag">ARCHIVE</span>
+                    </li>
+                    <li class="ops-idx-item" data-target="ops-entry-03" tabindex="0" role="link" aria-label="Jump to Graduate Teaching Assistant at UTA">
+                        <span class="ops-idx-dot status-completed"></span>
+                        <span class="ops-idx-num">03</span>
+                        <span class="ops-idx-name">UTA · GTA</span>
+                        <span class="ops-idx-tag">ARCHIVE</span>
+                    </li>
+                    <li class="ops-idx-item" data-target="ops-entry-04" tabindex="0" role="link" aria-label="Jump to Data Science internship at The Sparks Foundation">
+                        <span class="ops-idx-dot status-archived"></span>
+                        <span class="ops-idx-num">04</span>
+                        <span class="ops-idx-name">Sparks · DS Intern</span>
+                        <span class="ops-idx-tag">ARCHIVE</span>
+                    </li>
+                    <li class="ops-idx-item" data-target="ops-entry-05" tabindex="0" role="link" aria-label="Jump to Campus Build internship">
+                        <span class="ops-idx-dot status-archived"></span>
+                        <span class="ops-idx-num">05</span>
+                        <span class="ops-idx-name">Campus Build</span>
+                        <span class="ops-idx-tag">ARCHIVE</span>
+                    </li>
+                </ol>
+                <p class="ops-sidebar-hint">Select an entry to scroll the log.</p>
+            </aside>
+
+            <div class="ops-stream">
+                <article id="ops-entry-01" class="ops-entry ops-entry--current" data-ops="01">
+                    <div class="ops-entry-rail" aria-hidden="true">
+                        <span class="ops-entry-year">2025</span>
+                        <span class="ops-entry-node ops-entry-node--pulse"></span>
+                    </div>
+                    <div class="ops-entry-panel">
+                        <header class="ops-entry-head">
+                            <span class="ops-entry-code">LOG_ENTRY / 01</span>
+                            <span class="ops-entry-pill ops-entry-pill--live">&bull; ACTIVE ASSIGNMENT</span>
+                            <span class="ops-entry-dates">Sep 2025 &mdash; Present · Texas, USA</span>
+                        </header>
+                        <div class="ops-entry-body">
+                            <div class="ops-entry-visual">
+                                <img src="arcadis.png" alt="Arcadis" class="ops-entry-logo" width="56" height="56" loading="lazy" onerror="this.style.display='none'">
+                            </div>
+                            <div class="ops-entry-copy">
+                                <h3 class="ops-entry-title">Software Engineer</h3>
+                                <p class="ops-entry-org"><span class="ops-org">Arcadis</span> <span class="ops-org-muted">&mdash; City of Houston</span></p>
+                                <ul class="ops-bullets">
+                                    <li>Refactored legacy backend into a <strong>parallel compute pipeline</strong> with Python Multiprocessing, reducing execution time by <strong>~33%</strong> while holding memory footprint steady.</li>
+                                    <li>Automated cloud-native data infrastructure on AWS (<strong>S3, Glue, Redshift</strong>), turning raw data into analytics-ready datasets and removing manual processing bottlenecks.</li>
+                                    <li>Streamlined backend data pipelines on <strong>AWS Fargate</strong>, processing <strong>2M records daily</strong> and cutting pipeline execution time by <strong>18%</strong>.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <footer class="ops-entry-foot">
+                            <span class="ops-foot-label">Primary stack</span>
+                            <div class="ops-stack">
+                                <span class="tech-chip">Python</span>
+                                <span class="tech-chip">AWS S3</span>
+                                <span class="tech-chip">Glue</span>
+                                <span class="tech-chip">Redshift</span>
+                                <span class="tech-chip">Fargate</span>
+                            </div>
+                        </footer>
+                    </div>
+                </article>
+
+                <article id="ops-entry-02" class="ops-entry" data-ops="02">
+                    <div class="ops-entry-rail" aria-hidden="true">
+                        <span class="ops-entry-year">2025</span>
+                        <span class="ops-entry-node"></span>
+                    </div>
+                    <div class="ops-entry-panel">
+                        <header class="ops-entry-head">
+                            <span class="ops-entry-code">LOG_ENTRY / 02</span>
+                            <span class="ops-entry-pill">&bull; COMPLETED TOUR</span>
+                            <span class="ops-entry-dates">Jul 2025 &mdash; Sep 2025 · Texas, USA</span>
+                        </header>
+                        <div class="ops-entry-body">
+                            <div class="ops-entry-visual">
+                                <img src="UTA.png" alt="University of Texas at Arlington" class="ops-entry-logo" width="56" height="56" loading="lazy" onerror="this.style.display='none'">
+                            </div>
+                            <div class="ops-entry-copy">
+                                <h3 class="ops-entry-title">AI Engineer</h3>
+                                <p class="ops-entry-org"><span class="ops-org">University of Texas at Arlington</span></p>
+                                <ul class="ops-bullets">
+                                    <li>Designed <strong>agentic AI workflows</strong> using Python and LLMs, automating decision-making pipelines and reducing manual research iteration cycles by <strong>1.5x</strong>.</li>
+                                    <li>Integrated AI agents with <strong>digital signal processing</strong>, building adaptive systems that dynamically improved contextual signal interpretation.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <footer class="ops-entry-foot">
+                            <span class="ops-foot-label">Primary stack</span>
+                            <div class="ops-stack">
+                                <span class="tech-chip">Python</span>
+                                <span class="tech-chip">LLMs</span>
+                                <span class="tech-chip">Agents</span>
+                                <span class="tech-chip">DSP</span>
+                            </div>
+                        </footer>
+                    </div>
+                </article>
+
+                <article id="ops-entry-03" class="ops-entry" data-ops="03">
+                    <div class="ops-entry-rail" aria-hidden="true">
+                        <span class="ops-entry-year">2024</span>
+                        <span class="ops-entry-node"></span>
+                    </div>
+                    <div class="ops-entry-panel">
+                        <header class="ops-entry-head">
+                            <span class="ops-entry-code">LOG_ENTRY / 03</span>
+                            <span class="ops-entry-pill">&bull; COMPLETED TOUR</span>
+                            <span class="ops-entry-dates">Aug 2024 &mdash; May 2025 · Texas, USA</span>
+                        </header>
+                        <div class="ops-entry-body">
+                            <div class="ops-entry-visual">
+                                <img src="UTA.png" alt="University of Texas at Arlington" class="ops-entry-logo" width="56" height="56" loading="lazy" onerror="this.style.display='none'">
+                            </div>
+                            <div class="ops-entry-copy">
+                                <h3 class="ops-entry-title">Graduate Teaching Assistant</h3>
+                                <p class="ops-entry-org"><span class="ops-org">University of Texas at Arlington</span></p>
+                                <ul class="ops-bullets">
+                                    <li>As Cloud Computing and Operating Systems enrollment scaled, students needed reliable mentorship beyond lecture, my role was to own recurring touchpoints where <strong>200+ learners</strong> could get clarity on architectures, concurrency, memory/process models, and lab debugging without lowering rigor.</li>
+                                    <li>Ran <strong>weekly Q&amp;A sessions</strong> that surfaced recurring misconceptions early; reframed questions into teachable mini-lessons, coached toward independent troubleshooting, and fed themes back to faculty so pacing and assignments stayed aligned with where the cohort struggled.</li>
+                                    <li>Partnered on course delivery by assisting with <strong>exam proctoring</strong> and assessment logistics, maintaining integrity and consistent instructions under pressure so students knew exactly how to seek legitimate help during high-stakes evaluations.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <footer class="ops-entry-foot">
+                            <span class="ops-foot-label">Primary stack</span>
+                            <div class="ops-stack">
+                                <span class="tech-chip">Cloud Computing</span>
+                                <span class="tech-chip">Operating Systems</span>
+                                <span class="tech-chip">Academic Mentorship</span>
+                                <span class="tech-chip">Office Hours</span>
+                                <span class="tech-chip">Exam Proctoring</span>
+                            </div>
+                        </footer>
+                    </div>
+                </article>
+
+                <article id="ops-entry-04" class="ops-entry" data-ops="04">
+                    <div class="ops-entry-rail" aria-hidden="true">
+                        <span class="ops-entry-year">2021</span>
+                        <span class="ops-entry-node"></span>
+                    </div>
+                    <div class="ops-entry-panel">
+                        <header class="ops-entry-head">
+                            <span class="ops-entry-code">LOG_ENTRY / 04</span>
+                            <span class="ops-entry-pill">&bull; ARCHIVED</span>
+                            <span class="ops-entry-dates">Jul 2021 &mdash; Aug 2021</span>
+                        </header>
+                        <div class="ops-entry-body">
+                            <div class="ops-entry-visual">
+                                <img src="TSF.jpg" alt="The Sparks Foundation" class="ops-entry-logo" width="56" height="56" loading="lazy" onerror="this.style.display='none'">
+                            </div>
+                            <div class="ops-entry-copy">
+                                <h3 class="ops-entry-title">Data Science and Business Analytics Intern</h3>
+                                <p class="ops-entry-org"><span class="ops-org">The Sparks Foundation</span></p>
+                                <ul class="ops-bullets">
+                                    <li>Architected a <strong>supervised ML prediction system</strong>, evaluating <strong>Linear Regression</strong> and <strong>clustering</strong> models through comparative analysis and reaching <strong>89%</strong> prediction accuracy on student exam outcomes from preparation signals—a data-driven baseline for academic planning.</li>
+                                    <li>Built end-to-end <strong>MySQL ETL</strong> pipelines that fed clean, structured data into the model and drove a <strong>16%</strong> precision improvement through systematic feature engineering and EDA.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <footer class="ops-entry-foot">
+                            <span class="ops-foot-label">Primary stack</span>
+                            <div class="ops-stack">
+                                <span class="tech-chip">Python</span>
+                                <span class="tech-chip">MySQL</span>
+                                <span class="tech-chip">ETL</span>
+                                <span class="tech-chip">Supervised ML</span>
+                                <span class="tech-chip">EDA</span>
+                            </div>
+                        </footer>
+                    </div>
+                </article>
+
+                <article id="ops-entry-05" class="ops-entry" data-ops="05">
+                    <div class="ops-entry-rail" aria-hidden="true">
+                        <span class="ops-entry-year">2020</span>
+                        <span class="ops-entry-node"></span>
+                    </div>
+                    <div class="ops-entry-panel">
+                        <header class="ops-entry-head">
+                            <span class="ops-entry-code">LOG_ENTRY / 05</span>
+                            <span class="ops-entry-pill">&bull; ARCHIVED</span>
+                            <span class="ops-entry-dates">Jan 2020 &mdash; Apr 2020</span>
+                        </header>
+                        <div class="ops-entry-body">
+                            <div class="ops-entry-visual">
+                                <img src="campus_build.png" alt="Campus Build" class="ops-entry-logo" width="56" height="56" loading="lazy" onerror="this.style.display='none'">
+                            </div>
+                            <div class="ops-entry-copy">
+                                <h3 class="ops-entry-title">Software Developer Intern</h3>
+                                <p class="ops-entry-org"><span class="ops-org">Campus Build</span></p>
+                                <ul class="ops-bullets">
+                                    <li>Refactored production <strong>C++ modules</strong> applying OOP, Functional Programming, and STL principles to improve modularity and maintainability.</li>
+                                    <li>Contributed to full-stack feature development in an agile startup environment, joining code reviews and SDLC ceremonies alongside senior developers.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <footer class="ops-entry-foot">
+                            <span class="ops-foot-label">Primary stack</span>
+                            <div class="ops-stack">
+                                <span class="tech-chip">C++</span>
+                                <span class="tech-chip">STL</span>
+                                <span class="tech-chip">Agile</span>
+                            </div>
+                        </footer>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects-section" data-section-index="5">
+        <div class="section-header">
+            <div class="section-tag-box">
+                <span class="section-tag">■ SYSTEM.LOG / EXECUTION_HISTORY</span>
+            </div>
+        </div>
+
+        <div class="section-title-row">
+            <div class="section-titles">
+                <h2 class="section-title-main">EXECUTION</h2>
+                <h2 class="section-title-accent">HISTORY</h2>
+            </div>
+            <div class="section-desc-box">
+                <p>Spotlight on five flagship builds—full briefs below. Five more ships listed as honorary mentions.</p>
+            </div>
+        </div>
+
+        <div class="divider-line"></div>
+
+        <div class="mission-strip">
+            <div class="mission-chip">[ FEATURED: 05 ]</div>
+            <div class="mission-chip">[ HONORARY: 05 ]</div>
+            <div class="mission-chip">[ TOTAL BUILDS: 10 ]</div>
+        </div>
+
+        <div class="mission-timeline">
+            <aside class="mission-index" aria-label="Mission log navigation">
+                <div class="mission-index-header">
+                    <span class="idx-title">FEATURED LOG</span>
+                    <span class="idx-count">05 SPOTLIGHT</span>
+                </div>
+                <ol class="mission-index-list">
+                    <li class="idx-item" data-target="mission-01">
+                        <span class="idx-dot status-shipped"></span>
+                        <span class="idx-num">01</span>
+                        <span class="idx-name">RESUME OPTIMIZER</span>
+                        <span class="idx-status">SHIPPED</span>
+                    </li>
+                    <li class="idx-item" data-target="mission-02">
+                        <span class="idx-dot status-shipped"></span>
+                        <span class="idx-num">02</span>
+                        <span class="idx-name">TELEGRAM AGENT</span>
+                        <span class="idx-status">SHIPPED</span>
+                    </li>
+                    <li class="idx-item" data-target="mission-03">
+                        <span class="idx-dot status-shipped"></span>
+                        <span class="idx-num">03</span>
+                        <span class="idx-name">QUANT VISION</span>
+                        <span class="idx-status">SHIPPED</span>
+                    </li>
+                    <li class="idx-item" data-target="mission-04">
+                        <span class="idx-dot status-completed"></span>
+                        <span class="idx-num">04</span>
+                        <span class="idx-name">gRPC COMPUTE</span>
+                        <span class="idx-status">COMPLETED</span>
+                    </li>
+                    <li class="idx-item" data-target="mission-05">
+                        <span class="idx-dot status-published"></span>
+                        <span class="idx-num">05</span>
+                        <span class="idx-name">MEGACOSM</span>
+                        <span class="idx-status">PUBLISHED</span>
+                    </li>
+                </ol>
+                <div class="mission-index-footer">
+                    <div class="idx-progress"><span class="idx-progress-fill" id="mission-progress-fill"></span></div>
+                    <span class="idx-progress-label"><span id="mission-progress-current">01</span> / <span id="mission-progress-total">05</span></span>
+                </div>
+            </aside>
+
+            <div class="mission-scenes">
+
+                <article class="mission-scene" id="mission-01" data-mission="01" data-status="shipped">
+                    <div class="mission-scene-left">
+                        <div class="mission-number" aria-hidden="true">01</div>
+                        <div class="mission-preview">
+                            <img src="mission-resume-optimizer.png" alt="Abstract artwork: agentic resume optimization with RAG and LaTeX pipeline" loading="lazy" onerror="this.parentElement.classList.add('missing-preview');this.parentElement.setAttribute('data-preview-label','[ RESUME OPTIMIZER // ReAct + RAG ]');this.style.display='none';">
+                        </div>
+                    </div>
+                    <div class="mission-scene-right">
+                        <div class="mission-meta">
+                            <span class="mission-code">MISSION_01 &middot; FEATURED</span>
+                            <span class="mission-status-pill status-shipped">&bull; SHIPPED</span>
+                        </div>
+                        <h3 class="mission-title" data-scramble-target="AGENTIC RESUME OPTIMIZER">AGENTIC RESUME OPTIMIZER</h3>
+                        <div class="mission-tagline">ReAct AGENT &middot; RAG &middot; ATS-OPTIMIZED OUTPUT</div>
+                        <p class="mission-brief">Autonomous AI platform with a <strong>ReAct agent loop</strong> and <strong>14 OpenAI function-calling tools</strong> for end-to-end JD analysis, gap detection, and ATS-optimized resume output across sessions&mdash;translating a complex research idea into a production-grade codebase. Per-user <strong>RAG knowledge base</strong> with SQLite vector storage and OpenAI embeddings for high JD alignment; template-preserving <strong>LaTeX pipeline</strong> with brace-aware structural repair and automated one-page enforcement.</p>
+                        <div class="mission-tech">
+                            <span class="tech-chip">Python</span>
+                            <span class="tech-chip">OpenAI API</span>
+                            <span class="tech-chip">ReAct</span>
+                            <span class="tech-chip">RAG</span>
+                            <span class="tech-chip">SQLite</span>
+                            <span class="tech-chip">LaTeX</span>
+                        </div>
+                        <div class="mission-actions">
+                            <a class="mission-cta" href="https://github.com/Rohankeshav" target="_blank" rel="noopener noreferrer">VIEW SOURCE <span class="cta-arrow">&rarr;</span></a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="mission-scene" id="mission-02" data-mission="02" data-status="shipped">
+                    <div class="mission-scene-left">
+                        <div class="mission-number" aria-hidden="true">02</div>
+                        <div class="mission-preview">
+                            <img src="mission-telegram-agent.png" alt="Abstract artwork: automation workflows and scheduling for Telegram Agent project" loading="lazy" onerror="this.parentElement.classList.add('missing-preview');this.parentElement.setAttribute('data-preview-label','[ TELEGRAM AGENT // n8n + LLM ]');this.style.display='none';">
+                        </div>
+                    </div>
+                    <div class="mission-scene-right">
+                        <div class="mission-meta">
+                            <span class="mission-code">MISSION_02 &middot; FEATURED</span>
+                            <span class="mission-status-pill status-shipped">&bull; SHIPPED</span>
+                        </div>
+                        <h3 class="mission-title" data-scramble-target="TELEGRAM AGENT">TELEGRAM AGENT</h3>
+                        <div class="mission-tagline">AUTONOMOUS SCHEDULING &middot; n8n &times; LLM</div>
+                        <p class="mission-brief">Telegram-integrated automation workflow in n8n using Python, LangChain, JSON, and OpenAI APIs &mdash; streamlining natural-language scheduling with Airtable context. Built a voice-to-text pipeline in JavaScript with LLM intent parsing, letting AI agents autonomously create and manage Google Calendar events.</p>
+                        <div class="mission-tech">
+                            <span class="tech-chip">n8n</span>
+                            <span class="tech-chip">LangChain</span>
+                            <span class="tech-chip">OpenAI</span>
+                            <span class="tech-chip">JavaScript</span>
+                            <span class="tech-chip">Airtable</span>
+                        </div>
+                        <div class="mission-actions">
+                            <a class="mission-cta" href="https://github.com/Rohankeshav" target="_blank" rel="noopener noreferrer">VIEW SOURCE <span class="cta-arrow">&rarr;</span></a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="mission-scene" id="mission-03" data-mission="03" data-status="shipped">
+                    <div class="mission-scene-left">
+                        <div class="mission-number" aria-hidden="true">03</div>
+                        <div class="mission-preview">
+                            <img src="mission-quant-vision.png" alt="Abstract artwork: analytics charts for Quant Vision dashboard project" loading="lazy" onerror="this.parentElement.classList.add('missing-preview');this.parentElement.setAttribute('data-preview-label','[ QUANT VISION // STREAMLIT + PLOTLY ]');this.style.display='none';">
+                        </div>
+                    </div>
+                    <div class="mission-scene-right">
+                        <div class="mission-meta">
+                            <span class="mission-code">MISSION_03 &middot; FEATURED</span>
+                            <span class="mission-status-pill status-shipped">&bull; SHIPPED</span>
+                        </div>
+                        <h3 class="mission-title" data-scramble-target="QUANT VISION">QUANT VISION</h3>
+                        <div class="mission-tagline">REAL-TIME ANALYTICS &middot; BACKTESTING ENGINE</div>
+                        <p class="mission-brief">End-to-end fintech dashboard in Python with Streamlit and Plotly delivering real-time candlestick visualizations and analytics for equities and derivatives. Added backtesting and time-series forecasting with Pandas, NumPy, and statistical modeling to surface risk-management insights and improve investment timing.</p>
+                        <div class="mission-tech">
+                            <span class="tech-chip">Python</span>
+                            <span class="tech-chip">Streamlit</span>
+                            <span class="tech-chip">Plotly</span>
+                            <span class="tech-chip">yfinance</span>
+                            <span class="tech-chip">Pandas</span>
+                        </div>
+                        <div class="mission-actions">
+                            <a class="mission-cta" href="https://github.com/Rohankeshav" target="_blank" rel="noopener noreferrer">VIEW SOURCE <span class="cta-arrow">&rarr;</span></a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="mission-scene" id="mission-04" data-mission="04" data-status="completed">
+                    <div class="mission-scene-left">
+                        <div class="mission-number" aria-hidden="true">04</div>
+                        <div class="mission-preview">
+                            <img src="mission-grpc-compute.png" alt="Abstract artwork: distributed RPC network for gRPC compute server project" loading="lazy" onerror="this.parentElement.classList.add('missing-preview');this.parentElement.setAttribute('data-preview-label','[ gRPC COMPUTE // DISTRIBUTED ]');this.style.display='none';">
+                        </div>
+                    </div>
+                    <div class="mission-scene-right">
+                        <div class="mission-meta">
+                            <span class="mission-code">MISSION_04 &middot; FEATURED</span>
+                            <span class="mission-status-pill status-completed">&bull; COMPLETED</span>
+                        </div>
+                        <h3 class="mission-title" data-scramble-target="gRPC COMPUTE SERVER">gRPC COMPUTE SERVER</h3>
+                        <div class="mission-tagline">SYNC + ASYNC RPC &middot; MULTI-THREADED</div>
+                        <p class="mission-brief">Multi-threaded gRPC server in Python supporting distributed file operations and compute through sync and async RPCs. A folder-watcher client detects file changes and triggers remote compute, eliminating manual monitoring overhead and enabling real-time workflows.</p>
+                        <div class="mission-tech">
+                            <span class="tech-chip">Python</span>
+                            <span class="tech-chip">gRPC</span>
+                            <span class="tech-chip">Threading</span>
+                            <span class="tech-chip">Distributed</span>
+                        </div>
+                        <div class="mission-actions">
+                            <a class="mission-cta" href="https://github.com/Rohankeshav" target="_blank" rel="noopener noreferrer">VIEW SOURCE <span class="cta-arrow">&rarr;</span></a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="mission-scene" id="mission-05" data-mission="05" data-status="published">
+                    <div class="mission-scene-left">
+                        <div class="mission-number" aria-hidden="true">05</div>
+                        <div class="mission-preview">
+                            <img src="mission-megacosm.png" alt="Abstract artwork: astronomical object detection with bounding regions for MegaCosm CV project" loading="lazy" onerror="this.parentElement.classList.add('missing-preview');this.parentElement.setAttribute('data-preview-label','[ MEGACOSM // YOLO + CNN ]');this.style.display='none';">
+                        </div>
+                    </div>
+                    <div class="mission-scene-right">
+                        <div class="mission-meta">
+                            <span class="mission-code">MISSION_05 &middot; RESEARCH</span>
+                            <span class="mission-status-pill status-published">&bull; PUBLISHED</span>
+                        </div>
+                        <h3 class="mission-title" data-scramble-target="MEGACOSM">MEGACOSM</h3>
+                        <div class="mission-tagline">
+                            <span class="mission-metric" data-count="25" data-suffix="%">0%</span>
+                            <span>perf lift over baseline &middot; IRJCS published</span>
+                        </div>
+                        <p class="mission-brief">Computer-vision pipeline in Python with YOLO v5 and OpenCV for real-time astronomical object detection and classification. Iterative CNN optimizations and hyperparameter tuning lifted model performance <strong>25% over baseline</strong>. Published in IRJCS.</p>
+                        <div class="mission-tech">
+                            <span class="tech-chip">Python</span>
+                            <span class="tech-chip">YOLO v5</span>
+                            <span class="tech-chip">CNN</span>
+                            <span class="tech-chip">OpenCV</span>
+                            <span class="tech-chip">NumPy</span>
+                        </div>
+                        <div class="mission-actions">
+                            <a class="mission-cta" href="https://github.com/Rohankeshav" target="_blank" rel="noopener noreferrer">VIEW SOURCE <span class="cta-arrow">&rarr;</span></a>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+
+        <section class="mission-honorary-wrap" aria-labelledby="honorary-heading">
+            <div class="mission-honorary-panel">
+                <header class="mission-honorary-head">
+                    <div class="mission-honorary-head-row">
+                        <h3 id="honorary-heading" class="mission-honorary-title">Honorary archive</h3>
+                        <span class="mission-honorary-meta">05 entries</span>
+                    </div>
+                </header>
+
+                <ul class="mission-honorary-list">
+                    <li class="mission-honorary-item">
+                        <div class="hon-body">
+                            <h4 class="hon-title">Classifier</h4>
+                            <div class="hon-tags" aria-label="Tech stack">
+                                <span>Python</span><span>scikit-learn</span><span>Pandas</span>
+                            </div>
+                            <a class="hon-cta" href="https://github.com/Rohankeshav" target="_blank" rel="noopener noreferrer" aria-label="Classifier — source on GitHub"><i class="fab fa-github" aria-hidden="true"></i><span>Source</span></a>
+                        </div>
+                    </li>
+                    <li class="mission-honorary-item">
+                        <div class="hon-body">
+                            <h4 class="hon-title">Hadoop MapReduce</h4>
+                            <div class="hon-tags" aria-label="Tech stack">
+                                <span>Java</span><span>Hadoop</span><span>MapReduce</span>
+                            </div>
+                            <a class="hon-cta" href="https://github.com/Rohankeshav" target="_blank" rel="noopener noreferrer" aria-label="Hadoop MapReduce — source on GitHub"><i class="fab fa-github" aria-hidden="true"></i><span>Source</span></a>
+                        </div>
+                    </li>
+                    <li class="mission-honorary-item">
+                        <div class="hon-body">
+                            <h4 class="hon-title">AI Game</h4>
+                            <div class="hon-tags" aria-label="Tech stack">
+                                <span>Python</span><span>Minimax</span><span>Alpha-Beta</span>
+                            </div>
+                            <a class="hon-cta" href="https://github.com/Rohankeshav" target="_blank" rel="noopener noreferrer" aria-label="AI Game — source on GitHub"><i class="fab fa-github" aria-hidden="true"></i><span>Source</span></a>
+                        </div>
+                    </li>
+                    <li class="mission-honorary-item">
+                        <div class="hon-body">
+                            <h4 class="hon-title">Crime record management</h4>
+                            <div class="hon-tags" aria-label="Tech stack">
+                                <span>PHP</span><span>MySQL</span><span>JavaScript</span>
+                            </div>
+                            <a class="hon-cta" href="https://github.com/Rohankeshav" target="_blank" rel="noopener noreferrer" aria-label="Crime record management — source on GitHub"><i class="fab fa-github" aria-hidden="true"></i><span>Source</span></a>
+                        </div>
+                    </li>
+                    <li class="mission-honorary-item">
+                        <div class="hon-body">
+                            <h4 class="hon-title">Space trivia app</h4>
+                            <div class="hon-tags" aria-label="Tech stack">
+                                <span>Java</span><span>Android</span><span>XML</span>
+                            </div>
+                            <a class="hon-cta" href="https://github.com/Rohankeshav" target="_blank" rel="noopener noreferrer" aria-label="Space trivia app — source on GitHub"><i class="fab fa-github" aria-hidden="true"></i><span>Source</span></a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section" data-section-index="6">
+        <div class="contact-container">
+            <h2 class="contact-title">OPEN A CHANNEL</h2>
+            <p class="contact-subtitle">Cool projects, spicy ideas, or just want to nerd out about agents and pipelines? Drop a line.</p>
+
+            <form id="contact-form" class="contact-form" novalidate>
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required autocomplete="name" aria-describedby="name-error">
+                    <span class="form-field-error" id="name-error" role="alert"></span>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required autocomplete="email" aria-describedby="email-error">
+                    <span class="form-field-error" id="email-error" role="alert"></span>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="4" required aria-describedby="message-error"></textarea>
+                    <span class="form-field-error" id="message-error" role="alert"></span>
+                </div>
+                <div class="hp-field" aria-hidden="true">
+                    <label for="website">Website (leave empty)</label>
+                    <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+                </div>
+                <button type="submit" class="btn-contact form-submit">Send Message</button>
+                <p class="form-note">Submitting opens your email client with the message pre-filled.</p>
+                <div class="form-status" id="form-status" role="status" aria-live="polite"></div>
+            </form>
+            
+            <div class="contact-links">
+                <a href="mailto:rohankeshavh@gmail.com" class="contact-link">
+                    <i class="fas fa-envelope"></i>
+                    <span>rohankeshavh@gmail.com</span>
+                </a>
+                <a href="https://www.linkedin.com/in/rohankeshavh" target="_blank" rel="noopener noreferrer" class="contact-link">
+                    <i class="fab fa-linkedin-in"></i>
+                    <span>linkedin.com/in/rohankeshavh</span>
+                </a>
+                <a href="https://github.com/Rohankeshav" target="_blank" rel="noopener noreferrer" class="contact-link">
+                    <i class="fab fa-github"></i>
+                    <span>github.com/Rohankeshav</span>
+                </a>
+            </div>
+
+            <h3 class="contact-connect-title">Connect With Me</h3>
+            <a href="mailto:rohankeshavh@gmail.com" class="btn-contact">Ping the Operator</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Rohan Keshav Harish. All rights reserved.</p>
+        <p class="footer-subline">Hand-crafted. Caffeine-powered. Occasionally agentic. <span class="footer-hint">&middot; try <kbd>&uarr;&uarr;&darr;&darr;&larr;&rarr;&larr;&rarr;BA</kbd></span></p>
+    </footer>
+
+    <button id="scrollToTop" class="scroll-to-top" aria-label="Scroll to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    </main>
+
+    <!-- Command Palette -->
+    <div class="cmd-palette" id="cmd-palette" hidden role="dialog" aria-modal="true" aria-label="Jump to section">
+        <div class="cmd-panel">
+            <div class="cmd-search">
+                <i class="fas fa-search" aria-hidden="true"></i>
+                <input type="text" id="cmd-input" placeholder="Jump to section..." autocomplete="off" aria-label="Search sections">
+            </div>
+            <ul class="cmd-list" id="cmd-list" role="listbox">
+                <li role="option" tabindex="-1" data-target="#home">           <i class="fas fa-terminal"></i> Console           <span class="cmd-tag">hero</span></li>
+                <li role="option" tabindex="-1" data-target="#about">          <i class="fas fa-id-card"></i> System Profile      <span class="cmd-tag">about</span></li>
+                <li role="option" tabindex="-1" data-target="#education">      <i class="fas fa-graduation-cap"></i> Knowledge Base <span class="cmd-tag">edu</span></li>
+                <li role="option" tabindex="-1" data-target="#skills">         <i class="fas fa-microchip"></i> Capability Matrix  <span class="cmd-tag">skills</span></li>
+                <li role="option" tabindex="-1" data-target="#experience">     <i class="fas fa-briefcase"></i> Operations Log     <span class="cmd-tag">exp</span></li>
+                <li role="option" tabindex="-1" data-target="#projects">       <i class="fas fa-rocket"></i> Execution History    <span class="cmd-tag">projects</span></li>
+                <li role="option" tabindex="-1" data-target="#contact">        <i class="fas fa-satellite-dish"></i> Open Channel <span class="cmd-tag">contact</span></li>
+                <li role="option" tabindex="-1" data-action="resume" data-target="rohan.pdf"><i class="fas fa-file"></i> Load Resume <span class="cmd-tag">pdf</span></li>
+                <li role="option" tabindex="-1" data-action="github" data-target="https://github.com/Rohankeshav"><i class="fab fa-github"></i> Open GitHub <span class="cmd-tag">link</span></li>
+                <li role="option" tabindex="-1" data-action="linkedin" data-target="https://www.linkedin.com/in/rohankeshavh"><i class="fab fa-linkedin-in"></i> Open LinkedIn <span class="cmd-tag">link</span></li>
+            </ul>
+            <div class="cmd-footer">
+                <span><kbd>&uarr;</kbd><kbd>&darr;</kbd> navigate</span>
+                <span><kbd>&crarr;</kbd> select</span>
+                <span><kbd>esc</kbd> close</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
